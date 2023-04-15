@@ -1,0 +1,90 @@
+.container{
+    display: flex;
+    width: 100%;
+    height: 90vh;
+    background: linear-gradient( #410174, #9026C8);
+} 
+.second{
+    display: flex;
+    position: absolute;
+    left: 34.2%;
+    top: 22%;
+    width: 600px;
+    height: 620px;
+    background-color: #33083A;
+    flex-direction: column;
+}
+.email {
+    position: absolute;
+    left: 2rem;
+    top: 21rem;
+    width: 33rem;
+    height: 3.5rem;
+    border-radius: 10px;
+    border-color: gray;
+    color: gray;
+    font-size: 20px;
+    text-align: center;
+    transition: 0.5s;
+    outline: none;
+}
+.em{
+    position: absolute;
+    left: 17.5rem;
+    top: 22rem;
+    font-size: 20px;
+    transition: 0.5s;
+}
+.email:valid ~ .em,
+.email:focus ~ .em{
+
+    color: white;
+    border: 1.2px solid #fff;
+    background: #33083A;
+    transform: translate(-15px,-27px) scale(0.88);
+    border-radius: 6px;
+    font-size: 1em;
+    padding: 0 8px ;
+    left: 3rem;
+}
+.pass {
+    position: absolute;
+    left: 2rem;
+    top: 26rem;
+    width: 33rem;
+    height: 3.5rem;
+    border-radius: 10px;
+    border-color: gray;
+    color: gray;
+    font-size: 30px;
+    text-align: center;
+    transition: 0.5s;
+    outline: none;
+}
+.password{
+    position: absolute;
+    left: 16.5rem;
+    top: 27rem;
+    font-size: 20px;
+    transition: 0.5s;
+}
+.pass:valid ~ .password,
+.pass:focus ~ .password{
+
+    color: white;
+    border: 1.2px solid #fff;
+    background: #33083A;
+    transform: translate(-15px,-27px) scale(0.88);
+    border-radius: 6px;
+    font-size: 1em;
+    padding: 0 8px ;
+    left: 3rem;
+}
+button {
+    color: white;
+    background-color: aqua;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: medium;
+}
+    
