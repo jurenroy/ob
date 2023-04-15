@@ -4,6 +4,7 @@ import Dash from './screens/dashboard';
 import LoveUs from './screens/Loveus';
 import Dobook from './screens/Dobook.';
 import Message from './screens/message';
+import Profile from './screens/Profile';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/loveus" element={<LoveUs />} />
         <Route path="/dobook" element={<Dobook />} />
         <Route path="/message" element={<Message/>}/>
+        <Route path="/profile" element={<Profile/>}/>
       </Routes>
     </Router>
   );
