@@ -1,9 +1,14 @@
 import React from "react";
+import Headeded from "../components/Headeded";
+import '../styles/Dobook.css'
 
 const Dobook = () => {
     return( 
         <div>
-            <p>Book</p>
+            <Headeded/>
+            <div class = "Bg-container">
+                <p>wooooooi</p>
+            </div>
         </div>
     )
 }

@@ -1,15 +1,15 @@
 import React from "react";
 import Headeded from "../components/Headeded";
 
-const LoveUs = () => {
+const Message = () => {
     return( 
         <div>
         <Headeded/>
         <div class = "Bg-container">
-            <p>love me like you do</p>
+            <p>hi my dear im under the water heheheheehehe</p>
         </div>
     </div>
     )
 }
 
-export default LoveUs
+export default Message

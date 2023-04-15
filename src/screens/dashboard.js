@@ -1,10 +1,10 @@
 import React from "react";
-import Headed from "../components/Headed";
+import Headeded from "../components/Headeded";
 
 const Dash = () => {
     return( 
         <div style={{ backgroundColor: "lightgray", height:'100vh'}} className="container">
-            <Headed/>
+            <Headeded/>
             <img src="../assets/ob.png"/>
             <text className="text">ashdghgahshayuyhyyyyhssahd</text>
         </div>
