@@ -87,4 +87,36 @@ button {
     font-weight: bold;
     font-size: medium;
 }
-    
+.emailfp {
+    position: absolute;
+    left: 46.3rem;
+    top: 34rem;
+    width: 33rem;
+    height: 3.5rem;
+    border-radius: 25px;
+    border-color: gray;
+    color: gray;
+    font-size: 20px;
+    text-align: center;
+    transition: 0.5s;
+    outline: none;
+}
+.emfp{
+    position: absolute;
+    left: 60rem;
+    top: 35rem;
+    font-size: 20px;
+    transition: 0.5s;
+}
+.emailfp:valid ~ .emfp,
+.emailfp:focus ~ .emfp{
+
+    color: white;
+    border: 1.2px solid #fff;
+    background: #33083A;
+    transform: translate(50px,-27px) scale(0.88);
+    border-radius: 6px;
+    font-size: 1em;
+    padding: 0 8px ;
+    left: 44rem;
+}
