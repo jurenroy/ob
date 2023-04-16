@@ -1,8 +1,8 @@
 .Bg-container{
     display: flex;
     width: 100%;
-    height: 88.3vh;
-    background: linear-gradient( #410174, #9026C8);
+    height: 89.2vh;
+    background: linear-gradient( #9026C8, #410174);
 }.Bg-container2{
     display: flex;
     background-color:#33083A;
@@ -38,4 +38,16 @@
     cursor: pointer;
     transition: hover;
     
+}
+.nodialog{
+    position: absolute;
+    height: 1.8rem;
+    width: 6rem;
+    left: 51rem;
+    top: 28rem;
+    color: white;
+    border-radius: 10px;
+    border-color: #05b4e0;
+    background: #05b4e0;
+    font-size: 18px;
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from 'react';
 import { StyleSheet, Text, Pressable, View, Dimensions, Image, Animated, PanResponder, ImageBackground } from 'react-native';
 import { Conv } from '../../Components/Conv';
@@ -79,3 +80,19 @@ class HomePage extends Component {
 }
 }
 
+=======
+import React from 'react'
+import Headeded from '../components/Headeded'
+import '../styles/homepage.css'
+
+const Homepage = () => {
+  return (
+    <div>
+      <Headeded/>
+      <div className='homecontainer'></div>
+    </div>
+  )
+}
+
+export default Homepage
+>>>>>>> origin/Ednilan
