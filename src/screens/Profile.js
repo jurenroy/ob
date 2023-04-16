@@ -1,9 +1,11 @@
-import React from "react";
+import React,{useState} from "react";
 import Headeded from "../components/Headeded";
 import '../styles/Profile.css'
 import profiled from '../assets/profiled.png'
+import Confirm from "../components/ConfirmDialog";
 
 const Profile = () => {
+  const [show , setShow] = useState(false)
     return( 
         <div>
         <Headeded/>
@@ -25,11 +27,18 @@ const Profile = () => {
             </button>
           </div>
           <div classname = 'button-edit' style={{marginLeft:'12rem'}}>
-            <button Variant ='contained' as = "input" type = 'button' className='btn-edit'>
+            <button Variant ='contained' as = "input" type = 'button' className='btn-edit' onClick={() => setShow(true)}>
             <text className='button-text'>
               LOGOUT
             </text>
             </button>
+
+            {show && <Confirm/>}
+            {show && 
+            <button className='nodialog' onClick={() => setShow(false)}>
+              <text>no</text>
+            </button>}
+
           </div>
     </div>
     )
