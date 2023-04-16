@@ -34,7 +34,7 @@ const Dash = () => {
             </a>
 
             <button style={{height: '43px', width: '33rem', marginLeft: '35px', marginTop: '5px'}} onClick={() => navigate('/homepage')}>Sign In</button>
-            <a href style= {{textDecorationLine: 'underline', cursor: 'pointer', marginTop: '-1px', marginLeft: '175px', textDecorationColor: 'white'}}>
+            <a href style= {{textDecorationLine: 'underline', cursor: 'pointer', marginTop: '3px', marginLeft: '175px', textDecorationColor: 'white'}}>
                 <Link to = "/register" style={{color: 'white', fontWeight: 'normal'}}>Doesn’t have an Account? Sign Up Here.</Link>
             </a>
           </div>
