@@ -5,8 +5,9 @@ import '../styles/Dobook.css'
 const Dobook = () => {
     return( 
         <div>
-            <Headeded/>
+            
             <div class = "Bg-container">
+            <Headeded/>
                 <p>wooooooi</p>
             </div>
         </div>
