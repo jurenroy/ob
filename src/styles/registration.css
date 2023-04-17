@@ -1,23 +1,25 @@
 .regcontainer{
     display: flex;
     width: 100%;
-    height: 89.2vh;
+    height: 100vh;
+    max-height: 100vh;
     background: linear-gradient( #9026C8, #410174);
 }
 .secondcontainer{
     display: flex;
     position: absolute;
     left: 34.2%;
-    top: 17.8%;
+    top: 6rem;
     width: 40%;
-    height: 600px;
+    height: 400px;
     background-color: #33083A;
     flex-direction: column;
     box-shadow: 8px 9px 8px 5px black;
 }
 .regtxt{
     font-size: 48px;
-    margin-left: 12px;
+    margin-left: 5%;
+    margin-top: 0.1%;
     color: white;
     font-weight: bold;
 }
@@ -30,31 +32,31 @@
     font-weight: bold;
 }
 .first{
-   top: 10%;
-   left: 3%;
+   top: 15%;
+   left: 5%;
 }
 .last{
-    top: 10%;
-    left: 54%;
+    top: 15%;
+    left: 53%;
 }
 .ems{
-    top: 22%;
-    left: 3%;
+    top: 32%;
+    left: 5%;
 }.bd{
-    top: 33%;
-    left: 3%;
+    top: 48%;
+    left: 5%;
 }
 .gender{
-    top: 33%;
-    left: 54%;
+    top: 48%;
+    left: 53%;
 }
 .passw{
-    top: 44%;
-    left: 3%;
+    top: 64%;
+    left: 5%;
 }
 .cp{
-    top: 55%;
-    left: 3%;
+    top: 64%;
+    left: 53%;
 }
 
 
@@ -63,49 +65,49 @@
 .fin, .lin, .bin, .gin{
     position: absolute;
     height: 30px;
-    width: 43%;
+    width: 42%;
     font-size: 21px;
 
 }
 .fin{
-   top: 15%;
-   left: 3%;
+   top: 22%;
+   left: 5%;
 }
 .lin{
-    top: 15%;
-    left: 54%;
+    top: 22%;
+    left: 53%;
 }
 .ein{
     position: absolute;
     font-size: 21px;
     height: 30px;
-    width: 93%;
-    top: 27%;
-    left: 3%;
+    width: 90%;
+    top: 39%;
+    left: 5%;
 }
 .bin{
-    top: 38%;
-    left: 3%;
+    top: 56%;
+    left: 5%;
 }
 .gin{
-    top: 38%;
-    left: 54%;
+    top: 56%;
+    left: 53%;
 }
 .pin{
     position: absolute;
     height: 30px;
-    width: 60%;
+    width: 42%;
     font-size: 21px;
-    top: 49%;
-    left: 3%;
+    top: 71%;
+    left: 5%;
 }
 .cin{
     position: absolute;
     height: 30px;
-    width: 60%;
+    width: 42%;
     font-size: 21px;
-    top: 60%;
-    left: 3%;
+    top: 71%;
+    left: 53%;
 }
 
 .bot{
@@ -113,6 +115,7 @@
     height: 54px;
     width: 179px;
     font-size: 21px;
-    top: 76%;
-    left: 32%;
+    top: 90%; /* move element down by 50% of its height */
+    left: 50%; /* move element right by 50% of its width */
+    transform: translate(-50%, -50%); /* reposition element to the center */
 }

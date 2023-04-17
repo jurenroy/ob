@@ -93,10 +93,9 @@ button {
 }
 .emailfp {
     position: absolute;
-    left: 46.3rem;
-    top: 34rem;
-    width: 33rem;
-    height: 3.5rem;
+    width: 30rem;
+    height: 2.5rem;
+    margin-top: 10rem;
     border-radius: 25px;
     border-color: gray;
     color: gray;
@@ -107,8 +106,7 @@ button {
 }
 .emfp{
     position: absolute;
-    left: 60rem;
-    top: 35rem;
+    top:325px;
     font-size: 20px;
     transition: 0.5s;
 }
@@ -118,11 +116,11 @@ button {
     color: white;
     border: 1.2px solid #fff;
     background: #33083A;
-    transform: translate(50px,-27px) scale(0.88);
+    transform: translate(-10px,-20px) scale(0.88);
     border-radius: 6px;
     font-size: 1em;
     padding: 0 8px ;
-    left: 44rem;
+    left: 4rem;
 }
 Headed {
     position: fixed;

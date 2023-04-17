@@ -1,8 +1,10 @@
 import React, {useState} from 'react'
 import Headed from '../components/Headed'
 import '../styles/registration.css'
+import { useNavigate } from "react-router-dom";
 
 const Registration = () => {
+    const navigate = useNavigate();
     const [gender, setGender] = useState();
 
   return (
@@ -60,7 +62,7 @@ const Registration = () => {
                 type='password'
                 />
 
-                <button className='bot'> Register </button>
+                <button className='bot' onClick={() => navigate('/MandatoryProf')}> Register </button>
 
             </div>
         </div>

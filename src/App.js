@@ -23,7 +23,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/message" element={<Message />} />
         <Route path="/registration" element={<Registration />} />
-        <Route path="/ForgotPass" element={<ForgotPass />} />
+        <Route path="/forgotpass" element={<ForgotPass />} />
         <Route path="/MandatoryProf" element={<MandatoryProf />} />
       </Routes>
     </Router>

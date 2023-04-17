@@ -1,9 +1,12 @@
 import React from "react";
 import Headed from "../components/Headed";
+import Footres from "../components/Footres";
 import styles from "../components/styles.css";
 import ob from  "../assets/ob.png";
+import { useNavigate } from "react-router-dom";
 
 const Dash = () => {
+    const navigate = useNavigate();
 
     return( 
         <div style={{ backgroundColor: "lightgray", height:'100vh'}}>
@@ -27,16 +30,17 @@ const Dash = () => {
             type="password"
             required = 'required'/>
             <span className="password">Password</span>
-            <a href style= {{textDecorationLine: 'underline', cursor: 'pointer', marginTop: '20%', marginLeft: '330px', textDecorationColor: 'white'}}>
+            <a href style= {{textDecorationLine: 'underline', cursor: 'pointer', marginTop: '20%', marginLeft: '330px', textDecorationColor: 'white'}} onClick={() => navigate('/forgotpass')}>
                 <h3 style={{color: 'white', fontWeight: 'normal', fontSize:16}}>Forgot Password? </h3>
             </a>
 
-            <button style={{height: '43px', width: '91%', marginLeft: '2%'}}>Sign In</button>
-            <a href style= {{textDecorationLine: 'underline', cursor: 'pointer', marginTop: '-10px',textDecorationColor: 'white'}}>
+            <button style={{height: '43px', width: '91%', marginLeft: '2%'}} onClick={() => navigate('/homepage')}>Sign In</button>
+            <a href style= {{textDecorationLine: 'underline', cursor: 'pointer', marginTop: '-10px',textDecorationColor: 'white'}} onClick={() => navigate('/registration')}>
                 <h4 style={{color: 'white', fontWeight: 'normal'}}>Doesn’t have an Account? Sign Up Here.</h4>
             </a>
           </div>
         </div>
+        
         </div>
     )
 }
