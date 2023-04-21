@@ -3,7 +3,52 @@ import Headed from '../components/Headed'
 import '../styles/registration.css'
 
 const Registration = () => {
-    const [gender, setGender] = useState();
+    const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    const passvalid = /^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9-]{7,}$/;
+
+    const [regdata, setRegData] = useState({
+        firstname: "",
+        lastname: "",
+        email: "",
+        birthdate:"",
+        gender:"",
+        password: "",
+        confirmpass: ""
+    });
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setRegData((prevState) => ({ ...prevState, [name]: value }));
+      };
+
+    const registered = () =>{
+        
+        if (regdata.firstname ==='' && regdata.lastname ==='' && regdata.email ==='' && regdata.birthdate ==='' && regdata.gender ==='' && regdata.password ==='' && regdata.confirmpass ===''){
+            console.log('wla kay ge pang type')
+
+        }else{
+
+            if (regdata.firstname ==='' || regdata.lastname ==='' || regdata.email ==='' || regdata.birthdate ==='' || regdata.gender ==='' || regdata.password ==='' || regdata.confirmpass ===''){
+                console.log('wla nimo ge human og input ')
+
+            }else{
+
+                if (passvalid.test(regdata.password) === false || regex.test(regdata.email) === false){
+                    console.log('mali imong ge type nga password or email ')
+
+                }else{
+
+                    if (regdata.password!==regdata.confirmpass){
+                        console.log('dli parehas imong password og confrim password')
+
+                    }else{
+
+                        console.log(regdata)
+                    }
+                }
+            }    
+        }
+    }
 
   return (
     <div>
@@ -15,18 +60,27 @@ const Registration = () => {
                 <input 
                 className='fin'
                 type='type'
+                name="firstname"
+                value={regdata.firstname}
+                onChange={handleInputChange}
                 />
                 
                 <text className='last'>Last Name</text>
                 <input 
                 className='lin'
                 type='type'
+                name="lastname"
+                value={regdata.lastname}
+                onChange={handleInputChange}
                 />
                 
                 <text className='ems'>Email</text>
                 <input 
                 className='ein'
                 type='email'
+                name="email"
+                value={regdata.email}
+                onChange={handleInputChange}
                 />
                 
 
@@ -34,14 +88,18 @@ const Registration = () => {
                 <input 
                 className='bin'
                 type='date'
+                name="birthdate"
+                value={regdata.birthdate}
+                onChange={handleInputChange}
                 />
 
 
                 <text className='gender'>Gender</text>
-                <select value = {gender}
-                onChange = {(e) => setGender(e.target.value)}
+                <select name="gender"
+                value={regdata.gender}
+                onChange={handleInputChange}
                 className='gin'>
-                    <option >.....</option>
+                   <option value="" disabled select>....</option>
 
                     <option >Male</option>
                     <option >Female</option>
@@ -51,6 +109,9 @@ const Registration = () => {
                 <input 
                 className='pin'
                 type='password'
+                name="password"
+                value={regdata.password}
+                onChange={handleInputChange}
                 />
 
 
@@ -58,14 +119,18 @@ const Registration = () => {
                 <input 
                 className='cin'
                 type='password'
+                name="confirmpass"
+                value={regdata.confirmpass}
+                onChange={handleInputChange}
                 />
 
-                <button className='bot'> Register </button>
+                <button className='bot' onClick={registered}> Register </button>
 
             </div>
         </div>
     </div>
   )
 }
+
 
 export default Registration

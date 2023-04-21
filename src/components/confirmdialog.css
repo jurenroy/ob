@@ -19,7 +19,7 @@
 
 .dialogform{
     position:absolute;
-    /* box-shadow: 7px 7px 6px 6px black; */
+    box-shadow: 2px 2px 6px 6px aqua;
     background: #33083A;
     border-radius: 13px;
     font-size: 21px;
@@ -47,6 +47,6 @@
     color: white;
     border-radius: 10px;
     border-color: #05b4e0;
-    background: #05b4e0;
+    background:linear-gradient(to right, aqua, #4fc8ee, #6fd8f9,#7bdffe);
     font-size: 18px;
 }
