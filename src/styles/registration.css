@@ -8,17 +8,16 @@
     display: flex;
     position: absolute;
     left: 34.2%;
-    top: 6rem;
+    top: 17.8%;
     width: 40%;
-    height: 400px;
+    height: 600px;
     background-color: #33083A;
     flex-direction: column;
     box-shadow: 8px 9px 8px 5px black;
 }
 .regtxt{
     font-size: 48px;
-    margin-left: 5%;
-    margin-top: 0.1%;
+    margin-left: 12px;
     color: white;
     font-weight: bold;
 }
@@ -31,31 +30,31 @@
     font-weight: bold;
 }
 .first{
-   top: 15%;
-   left: 5%;
+   top: 10%;
+   left: 3%;
 }
 .last{
-    top: 15%;
-    left: 53%;
+    top: 10%;
+    left: 54%;
 }
 .ems{
-    top: 32%;
-    left: 5%;
+    top: 22%;
+    left: 3%;
 }.bd{
-    top: 48%;
-    left: 5%;
+    top: 33%;
+    left: 3%;
 }
 .gender{
-    top: 48%;
-    left: 53%;
+    top: 33%;
+    left: 54%;
 }
 .passw{
-    top: 64%;
-    left: 5%;
+    top: 44%;
+    left: 3%;
 }
 .cp{
-    top: 64%;
-    left: 53%;
+    top: 55%;
+    left: 3%;
 }
 
 
@@ -64,49 +63,49 @@
 .fin, .lin, .bin, .gin{
     position: absolute;
     height: 30px;
-    width: 42%;
+    width: 43%;
     font-size: 21px;
 
 }
 .fin{
-   top: 22%;
-   left: 5%;
+   top: 15%;
+   left: 3%;
 }
 .lin{
-    top: 22%;
-    left: 53%;
+    top: 15%;
+    left: 54%;
 }
 .ein{
     position: absolute;
     font-size: 21px;
     height: 30px;
-    width: 90%;
-    top: 39%;
-    left: 5%;
+    width: 93%;
+    top: 27%;
+    left: 3%;
 }
 .bin{
-    top: 56%;
-    left: 5%;
+    top: 38%;
+    left: 3%;
 }
 .gin{
-    top: 56%;
-    left: 53%;
+    top: 38%;
+    left: 54%;
 }
 .pin{
     position: absolute;
     height: 30px;
-    width: 42%;
+    width: 60%;
     font-size: 21px;
-    top: 71%;
-    left: 5%;
+    top: 49%;
+    left: 3%;
 }
 .cin{
     position: absolute;
     height: 30px;
-    width: 42%;
+    width: 60%;
     font-size: 21px;
-    top: 71%;
-    left: 53%;
+    top: 60%;
+    left: 3%;
 }
 
 .bot{
@@ -114,7 +113,6 @@
     height: 54px;
     width: 179px;
     font-size: 21px;
-    top: 90%; /* move element down by 50% of its height */
-    left: 50%; /* move element right by 50% of its width */
-    transform: translate(-50%, -50%); /* reposition element to the center */
+    top: 76%;
+    left: 32%;
 }

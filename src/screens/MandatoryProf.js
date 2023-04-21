@@ -3,11 +3,9 @@ import Headed from "../components/Headed";
 import styles from "../components/styles.css";
 import profiled from "../assets/profiled.png"
 import { useState } from 'react';
-import { useNavigate } from "react-router-dom";
 
 const MandatoryProf = () => {
-  const navigate = useNavigate();
-  const [storedImage, setStoredImage] = useState(null);
+    const [storedImage, setStoredImage] = useState(null);
 
         const pickImage = async (event) => {
           event.preventDefault();
@@ -40,7 +38,7 @@ const MandatoryProf = () => {
         </button>
       </label>
             <h3 style={{color: 'white', fontSize: '20px',fontStyle: 'Poppins', marginTop: '1rem', justifyContent: 'center', alignItems: 'center', marginLeft: "10rem", fontWeight: 'normal'}}>Please insert photo for your profile.</h3>
-            <button style={{height: '43px', width: '10rem', marginLeft: '14.7rem', marginTop: '-10px'}} onClick={() => navigate('/')}>Continue</button>
+            <button style={{height: '43px', width: '10rem', marginLeft: '14.7rem', marginTop: '-10px'}}>Continue</button>
         </div>
         </div>
     </div>
