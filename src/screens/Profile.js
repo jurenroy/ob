@@ -22,12 +22,12 @@ const Profile = () => {
             <div class = "Bg-container3" style={{marginTop: '17rem', marginLeft: '1rem'}}> Bio: hehehehehe</div>
             <div class = "Bg-container4" style={{marginTop: '25rem', marginLeft: '1rem'}}> Address:Bulua, Cagayan de Oro City</div>           
             
-            <div classname="button-edit" style={{ marginLeft: "8%",marginTop:600,position:"absolute"}}>
+            <div classname="button-edit" style={{ marginLeft: "8%",marginTop:600,position:"absolute",marginBottom:20}}>
               <button Variant="contained" as="input" type="button" className="btn-edit">
                 <text className="button-text">EDIT</text>
               </button>
             </div>
-            <div classname="button-edit" style={{ marginLeft: "16%",marginTop:600 }}>
+            <div classname="button-edit" style={{ marginLeft: "16%",marginTop:600,marginBottom:20}}>
               <button
                 Variant="contained"
                 as="input"

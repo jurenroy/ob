@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import Headed from "../components/Headed";
 import "../components/styles.css";
 import ob from  "../assets/ob.png";
-import { Link, useNavigate } from "react-router-dom";
-
 
 const Dash = () => {
     const navigate = useNavigate()
@@ -77,6 +75,7 @@ const Dash = () => {
             </a>
           </div>
         </div>
+        
         </div>
     )
 }
