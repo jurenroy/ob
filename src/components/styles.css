@@ -94,8 +94,8 @@ button {
 }
 .emailfp {
     position: absolute;
-    left: 9.8rem;
-    top: 31rem;
+    left: 8rem;
+    top: 26rem;
     width: 33rem;
     height: 3.5rem;
     border-radius: 25px;
@@ -108,8 +108,8 @@ button {
 }
 .emfp{
     position: absolute;
-    left: 23rem;
-    top: 32rem;
+    left: 21rem;
+    top: 27rem;
     font-size: 20px;
     transition: 0.5s;
 }
@@ -139,7 +139,10 @@ Headed {
     position: absolute;
     display: flex;
     background: transparent;
+    justify-content: center;
+    transform: translate(-50%, -50%);
     height: 750px;
     width: 800px;
-    left: 400px;
+    top: 380px;
+    left: 50%;
   }

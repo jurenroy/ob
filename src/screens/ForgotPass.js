@@ -31,8 +31,8 @@ const ForgotPass = () => {
             <Headed/>
             <div className='container'>
                 <div className="forgotpasscon">
-                    <img src={ob} style={{position:'absolute', height: '300px', width: '300px', marginTop:'70px', marginLeft: '16rem'}} />
-                    <h1 style={{color: 'white', fontSize: '70px',fontStyle: 'Poppins', marginTop: '23rem', justifyContent: 'center', alignItems: 'center', marginLeft: "8rem"}}>Forgot Password</h1>
+                    <img src={ob} style={{position:'absolute', height: '200px', width: '200px', marginTop:'70px'}} />
+                    <h1 style={{color: 'white', fontSize: '70px',fontStyle: 'Poppins', marginTop: '18rem', justifyContent: 'center',}}>Forgot Password</h1>
 
 
                     <input 
@@ -44,7 +44,7 @@ const ForgotPass = () => {
                     onChange={checkEmail}
                     required = 'required'/>
                     <span className="emfp">Email Address</span>
-                    <button style={{height: '43px', width: '20rem', marginLeft: '17.5rem', marginTop: '580PX', position: 'absolute', fontWeight: 'bold'}} onClick={forgot}>SEND TO EMAIL ADDRESS</button>
+                    <button style={{height: '43px', width: '20rem', marginTop: '500PX', position: 'absolute', fontWeight: 'bold'}} onClick={forgot}>SEND TO EMAIL ADDRESS</button>
                 </div>
             </div>
 

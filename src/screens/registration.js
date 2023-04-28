@@ -1,49 +1,75 @@
 import React, {useState} from 'react'
 import Headed from '../components/Headed'
 import '../styles/registration.css'
+import { Navigation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { createUserProfile } from '../api'
 
 const Registration = () => {
+    const navigate = useNavigate();
     const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     const passvalid = /^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9-]{7,}$/;
 
-    const [regdata, setRegData] = useState({
-        firstname: "",
-        lastname: "",
+    const [data, setData] = useState({
+        first_name: "",
+        last_name: "",
         email: "",
         birthdate:"",
         gender:"",
         password: "",
-        confirmpass: ""
     });
+
+    const [data2, setData2] = useState({
+        confirmPassword: "",
+      });
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setRegData((prevState) => ({ ...prevState, [name]: value }));
+        setData((prevState) => ({ ...prevState, [name]: value }));
       };
 
     const registered = () =>{
         
-        if (regdata.firstname ==='' && regdata.lastname ==='' && regdata.email ==='' && regdata.birthdate ==='' && regdata.gender ==='' && regdata.password ==='' && regdata.confirmpass ===''){
+        if (data.first_name ==='' && data.lastname ==='' && data.email ==='' && data.birthdate ==='' && data.gender ==='' && data.password ==='' && data2.confirmpass ===''){
             console.log('wla kay ge pang type')
+            alert('wla kay ge pang type')
 
         }else{
 
-            if (regdata.firstname ==='' || regdata.lastname ==='' || regdata.email ==='' || regdata.birthdate ==='' || regdata.gender ==='' || regdata.password ==='' || regdata.confirmpass ===''){
+            if (data.first_name ==='' || data.lastname ==='' || data.email ==='' || data.birthdate ==='' || data.gender ==='' || data.password ==='' || data2.confirmpass ===''){
                 console.log('wla nimo ge human og input ')
 
             }else{
 
-                if (passvalid.test(regdata.password) === false || regex.test(regdata.email) === false){
+                if (passvalid.test(data.password) === false || regex.test(data.email) === false){
                     console.log('mali imong ge type nga password or email ')
 
                 }else{
 
-                    if (regdata.password!==regdata.confirmpass){
+                    if (data.password!==data2.confirmpass){
                         console.log('dli parehas imong password og confrim password')
 
                     }else{
 
-                        console.log(regdata)
+                        console.log(data)
+                        createUserProfile(data, {
+                            headers: {
+                              "Content-Type": "application/json",
+                            },
+                          })
+                            .then((response) => {
+                              console.log(response.data);
+                              alert(
+                                "Successfully Registered!\nPlease check your email\nfor activation"
+                              );
+                              navigate('/mandatoryprof')
+                            })
+                            .catch((error) => {
+                              console.log(error);
+                              console.log(error.request);
+                              console.log(data);
+                            });
+
                     }
                 }
             }    
@@ -61,7 +87,7 @@ const Registration = () => {
                 className='fin'
                 type='type'
                 name="firstname"
-                value={regdata.firstname}
+                value={data.firstname}
                 onChange={handleInputChange}
                 />
                 
@@ -70,7 +96,7 @@ const Registration = () => {
                 className='lin'
                 type='type'
                 name="lastname"
-                value={regdata.lastname}
+                value={data.lastname}
                 onChange={handleInputChange}
                 />
                 
@@ -79,7 +105,7 @@ const Registration = () => {
                 className='ein'
                 type='email'
                 name="email"
-                value={regdata.email}
+                value={data.email}
                 onChange={handleInputChange}
                 />
                 
@@ -89,14 +115,14 @@ const Registration = () => {
                 className='bin'
                 type='date'
                 name="birthdate"
-                value={regdata.birthdate}
+                value={data.birthdate}
                 onChange={handleInputChange}
                 />
 
 
                 <text className='gender'>Gender</text>
                 <select name="gender"
-                value={regdata.gender}
+                value={data.gender}
                 onChange={handleInputChange}
                 className='gin'>
                    <option value="" disabled select>....</option>
@@ -110,7 +136,7 @@ const Registration = () => {
                 className='pin'
                 type='password'
                 name="password"
-                value={regdata.password}
+                value={data.password}
                 onChange={handleInputChange}
                 />
 
@@ -120,7 +146,7 @@ const Registration = () => {
                 className='cin'
                 type='password'
                 name="confirmpass"
-                value={regdata.confirmpass}
+                value={data2.confirmpass}
                 onChange={handleInputChange}
                 />
 
