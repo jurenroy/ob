@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
 import Headed from '../components/Headed'
 import '../styles/registration.css'
-import { useNavigate } from 'react-router-dom'
+import { Navigation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { createUserProfile } from '../api';
 
 const Registration = () => {
     const navigate = useNavigate()
@@ -97,18 +99,19 @@ const Registration = () => {
                 setErrormsg('Invalid Input Confirm Password');
                 document.querySelector('input[name="confirmpass"]').classList.add('error'); 
 
-                // {kani kay kung dli parehas ang Password og Confirm Password}
-            }else if(regdata.password!==regdata.confirmpass){
-                setErrormsg('Passwords does not match');
-                document.querySelector('input[name="password"]').classList.add('error');
-                document.querySelector('input[name="confirmpass"]').classList.add('error');
+            }else if (regdata.password!==regdata.confirmpass){
+                setErrormsg('Invalid Input Confirm Password');
+                document.querySelector('input[name="password"]').classList.add('error'); 
+                document.querySelector('input[name="confirmpass"]').classList.add('error'); 
 
             }else{
-            navigate('/mandatoryprof')
-
+                console.log(regdata)
+                navigate('/mandatoryprof')
             }
-
-    }
+        }
+               
+        
+    
 
   return (
     <div>
@@ -193,6 +196,7 @@ const Registration = () => {
     </div>
   )
 }
+
 
 
 export default Registration

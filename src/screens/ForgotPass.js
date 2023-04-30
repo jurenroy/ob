@@ -26,6 +26,8 @@ const ForgotPass = () => {
             setErrormsg('Please enter a valid Email Address');
             document.querySelector('input[name="email"]').classList.add('error');
             
+        }else{
+            navigate('/')
         }
     }
 

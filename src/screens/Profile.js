@@ -21,13 +21,13 @@ const Profile = () => {
             <h4 style={{color:'#fff', marginLeft:'-25rem', marginTop:'15rem', fontFamily: 'serif'}}>Interested: ice cream that don`t melt</h4>
             <div class = "Bg-container3" style={{marginTop: '17rem', marginLeft: '1rem'}}> Bio: hehehehehe</div>
             <div class = "Bg-container4" style={{marginTop: '25rem', marginLeft: '1rem'}}> Address:Bulua, Cagayan de Oro City</div>           
-            
-            <div classname="button-edit" style={{ marginLeft: "8%",marginTop:600,position:"absolute"}}>
+            <div style={{justifyContent: 'space-evenly'}}>
+            <div classname="button-edit" style={{ marginTop:600, marginLeft: -150}}>
               <button Variant="contained" as="input" type="button" className="btn-edit">
                 <text className="button-text">EDIT</text>
               </button>
             </div>
-            <div classname="button-edit" style={{ marginLeft: "16%",marginTop:600 }}>
+            <div classname="button-edit" style={{ marginTop:600, marginLeft: 120 }}>
               <button
                 Variant="contained"
                 as="input"
@@ -37,6 +37,7 @@ const Profile = () => {
               >
                 <text className="button-text">LOGOUT</text>
               </button>
+            </div>
             </div>
           </div>          
         </div>
