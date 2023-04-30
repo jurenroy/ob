@@ -14,10 +14,12 @@
     background-color: #33083A;
     flex-direction: column;
     box-shadow: 8px 9px 8px 5px black;
+    text-align: center;
 }
 .regtxt{
+    position: absolute;
     font-size: 48px;
-    margin-left: 12px;
+    left: 12px;
     color: white;
     font-weight: bold;
 }
@@ -113,6 +115,20 @@
     height: 54px;
     width: 179px;
     font-size: 21px;
-    top: 76%;
-    left: 32%;
+    top: 82%;
+    left: 38%;
 }
+
+.error {
+    border: 2px solid red;
+  }
+
+.errormessage{
+    color: red;
+    text-shadow: 0 0 5px  #7d0000,  0 0 15px  #7d0000, 0 0 30px  #7d0000, 0 0 60px  #7d0000;
+    font-size: 28px;
+    position: relative;
+    left: 20px;
+    top: 400px;
+}
+

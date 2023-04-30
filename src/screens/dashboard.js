@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Dash = () => {
     const navigate = useNavigate()
+    const [errormsg, setErrormsg] = useState("")
 
     const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     const passvalid = /^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9-]{7,}$/;
@@ -15,24 +16,41 @@ const Dash = () => {
         email: "",
         password: "",
     });
+
     
-
-
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setData((prevState) => ({ ...prevState, [name]: value }));
+        const inputElement = document.querySelector(`input[name="${name}"]`);
+        if (inputElement) {
+          inputElement.classList.remove('error');
+          setErrormsg(' ');
+        }
       };
+
+
+
 
     const submit = () =>{
         if (data.email==='' && data.password===''){
-            console.log('wla kay ge pang type')
+            setErrormsg('Please fill out all fields');
+            document.querySelector('input[name="email"]').classList.add('error');
+            document.querySelector('input[name="password"]').classList.add('error');
+
+        }else if (data.email === ''){
+          setErrormsg("Enter your Email")
+
+        }else if (regex.test(data.email) === false){
+          setErrormsg("Enter a valid Email")
+
+        }else if (data.password === ''){
+          setErrormsg("Enter your Password")
+
+        }else if (passvalid.test(data.password) === false){
+          setErrormsg("Enter a valid Password")
+
         }else{
-           if (passvalid.test(data.password) === false || regex.test(data.email) === false){
-                console.log('mali imong ge pang type')
-            }else{
-                console.log('oks na haha')
-                navigate('/homepage')
-            }
+            navigate('/homepage')
         }
     }
         
@@ -56,6 +74,7 @@ const Dash = () => {
             onChange={handleInputChange}
             required = 'required'/>
             <span className="em">Email</span>
+            
 
             <input 
             className="pass"
@@ -66,12 +85,14 @@ const Dash = () => {
             onChange={handleInputChange}
             required = 'required'/>
             <span className="password">Password</span>
+            
 
             <a href style= {{position:'absolute', textDecorationLine: 'underline', cursor: 'pointer', top: '74%', marginLeft: '330px', textDecorationColor: 'white'}}>
                 <Link to = 'forgotpass' style={{color: 'white', fontWeight: 'normal', fontSize:16}}>Forgot Password? </Link>
             </a>
 
             <button style={{position:'absolute', height: '43px', width: '91%',top:'413px', marginLeft: '2%'}} onClick={submit/*() => navigate('/homepage')*/}>Sign In</button>
+            <p className="signuperror">{errormsg}</p>
             <a href style= {{position:'absolute', textDecorationLine: 'underline', cursor: 'pointer', top: '460px',textDecorationColor: 'white'}}>
                 <Link to = 'registration' style={{color: 'white', fontWeight: 'normal'}}>Doesn’t have an Account? Sign Up Here.</Link>
             </a>

@@ -1,8 +1,12 @@
 import React, {useState} from 'react'
 import Headed from '../components/Headed'
 import '../styles/registration.css'
+import { useNavigate } from 'react-router-dom'
 
 const Registration = () => {
+    const navigate = useNavigate()
+    const [errormsg, setErrormsg] = useState("")
+
     const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     const passvalid = /^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9-]{7,}$/;
 
@@ -19,35 +23,91 @@ const Registration = () => {
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setRegData((prevState) => ({ ...prevState, [name]: value }));
+        const inputElement = document.querySelector(`input[name="${name}"]`);
+        if (inputElement) {
+          inputElement.classList.remove('error');
+          setErrormsg(' ');
+        }
       };
 
+
     const registered = () =>{
-        
+
+        // {kani kay kung wla kay ge input sa tanan}
         if (regdata.firstname ==='' && regdata.lastname ==='' && regdata.email ==='' && regdata.birthdate ==='' && regdata.gender ==='' && regdata.password ==='' && regdata.confirmpass ===''){
-            console.log('wla kay ge pang type')
+                // mo tunga ang txt if error
+                setErrormsg('Complete the input text above');
 
-        }else{
+                // kung error kay mo pula ang border
+                document.querySelector('input[name="firstname"]').classList.add('error');
+                document.querySelector('input[name="lastname"]').classList.add('error');
+                document.querySelector('input[name="email"]').classList.add('error');
+                document.querySelector('input[name="birthdate"]').classList.add('error');
+                document.querySelector('input[name="password"]').classList.add('error');
+                document.querySelector('input[name="confirmpass"]').classList.add('error');
 
-            if (regdata.firstname ==='' || regdata.lastname ==='' || regdata.email ==='' || regdata.birthdate ==='' || regdata.gender ==='' || regdata.password ==='' || regdata.confirmpass ===''){
-                console.log('wla nimo ge human og input ')
+                // {kani kay kung wla kay ge input sa First Name}
+            }else if (regdata.firstname ===''){
+                setErrormsg('Enter your First Name');
+                document.querySelector('input[name="firstname"]').classList.add('error');
+                
+               
+                // {kani kay kung wla kay ge input sa Last Name}
+            }else if (regdata.lastname ===''){
+                setErrormsg('Enter your Last Name');
+                document.querySelector('input[name="lastname"]').classList.add('error');
+                
+                
+                // {kani kay kung wla kay ge input sa Email}
+            }else if (regdata.email ===''){
+                setErrormsg('Enter your Email');
+                document.querySelector('input[name="email"]').classList.add('error');
+
+                // {kani kay sa Email Validation}
+            }else if (regex.test(regdata.email) === false){   
+                setErrormsg('Enter a valid Email');
+                document.querySelector('input[name="email"]').classList.add('error');
+
+                // {kani kay kung wla kay ge input sa Birth Date }
+            }else if (regdata.birthdate ===''){
+                setErrormsg('Enter your Birth Date');
+                document.querySelector('input[name="birthdate"]').classList.add('error');
+
+                // {kani kay kung wla kay ge input sa Gender }
+            }else if (regdata.gender ===''){
+                setErrormsg('Enter your Gender');
+
+                // {kani kay kung wla kay ge input sa Paswword}
+            }else if (regdata.password ===''){
+                setErrormsg('Enter your Password');
+                document.querySelector('input[name="password"]').classList.add('error');
+
+                // {kani kay sa Password Validation}
+            }else if(passvalid.test(regdata.password) === false ){
+                setErrormsg('Invalid Input Password');
+                document.querySelector('input[name="password"]').classList.add('error');
+                
+                // {kani kay kung wla kay ge input sa Confirm Password}
+            }else if (regdata.confirmpass ===''){
+                setErrormsg('Enter your Confirm Password');
+                document.querySelector('input[name="confirmpass"]').classList.add('error');
+
+                // {kani kay sa Confirm Password Validation}
+            }else if(passvalid.test(regdata.confirmpass) === false ){
+                setErrormsg('Invalid Input Confirm Password');
+                document.querySelector('input[name="confirmpass"]').classList.add('error'); 
+
+                // {kani kay kung dli parehas ang Password og Confirm Password}
+            }else if(regdata.password!==regdata.confirmpass){
+                setErrormsg('Passwords does not match');
+                document.querySelector('input[name="password"]').classList.add('error');
+                document.querySelector('input[name="confirmpass"]').classList.add('error');
 
             }else{
+            navigate('/mandatoryprof')
 
-                if (passvalid.test(regdata.password) === false || regex.test(regdata.email) === false){
-                    console.log('mali imong ge type nga password or email ')
+            }
 
-                }else{
-
-                    if (regdata.password!==regdata.confirmpass){
-                        console.log('dli parehas imong password og confrim password')
-
-                    }else{
-
-                        console.log(regdata)
-                    }
-                }
-            }    
-        }
     }
 
   return (
@@ -125,6 +185,8 @@ const Registration = () => {
                 />
 
                 <button className='bot' onClick={registered}> Register </button>
+                <p className='errormessage'>{errormsg}</p>
+                
 
             </div>
         </div>

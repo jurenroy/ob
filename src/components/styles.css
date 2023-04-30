@@ -143,3 +143,22 @@ Headed {
     width: 800px;
     left: 400px;
   }
+
+  .forgoterror{
+    color: red;
+    text-shadow: 0 0 5px  #7d0000,  0 0 15px  #7d0000, 0 0 30px  #7d0000, 0 0 60px  #7d0000;
+    font-size: 28px;
+    position: absolute;
+    left: 30%;
+    top: 70%;
+}
+
+.signuperror{
+    color: red;
+    text-shadow: 0 0 5px  #7d0000,  0 0 15px  #7d0000, 0 0 30px  #7d0000, 0 0 60px  #7d0000;
+    font-size: 17px;
+    position: absolute;
+    top: 70.4%;
+
+}
+
