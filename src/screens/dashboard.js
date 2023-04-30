@@ -38,15 +38,19 @@ const Dash = () => {
             document.querySelector('input[name="password"]').classList.add('error');
 
         }else if (data.email === ''){
+          document.querySelector('input[name="email"]').classList.add('error');
           setErrormsg("Enter your Email")
 
         }else if (regex.test(data.email) === false){
+          document.querySelector('input[name="email"]').classList.add('error');
           setErrormsg("Enter a valid Email")
 
         }else if (data.password === ''){
+          document.querySelector('input[name="password"]').classList.add('error');
           setErrormsg("Enter your Password")
 
         }else if (passvalid.test(data.password) === false){
+          document.querySelector('input[name="password"]').classList.add('error');
           setErrormsg("Enter a valid Password")
 
         }else{
