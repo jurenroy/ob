@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Headed from "../components/Headed";
 import "../components/styles.css";
 import ob from  "../assets/ob.png";
+import { UserLogin } from "../api";
 import { Link, useNavigate } from "react-router-dom";
 
 
@@ -13,8 +14,8 @@ const Dash = () => {
     const passvalid = /^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9-]{7,}$/;
 
     const [data, setData] = useState({
-        email: "",
-        password: "",
+      username: "",
+      password: "",
     });
 
     
@@ -32,17 +33,17 @@ const Dash = () => {
 
 
     const submit = () =>{
-        if (data.email==='' && data.password===''){
+        if (data.username==='' && data.password===''){
             setErrormsg('Please fill out all fields');
-            document.querySelector('input[name="email"]').classList.add('error');
+            document.querySelector('input[name="username"]').classList.add('error');
             document.querySelector('input[name="password"]').classList.add('error');
 
-        }else if (data.email === ''){
-          document.querySelector('input[name="email"]').classList.add('error');
+        }else if (data.username === ''){
+          document.querySelector('input[name="username"]').classList.add('error');
           setErrormsg("Enter your Email")
 
-        }else if (regex.test(data.email) === false){
-          document.querySelector('input[name="email"]').classList.add('error');
+        }else if (regex.test(data.username) === false){
+          document.querySelector('input[name="username"]').classList.add('error');
           setErrormsg("Enter a valid Email")
 
         }else if (data.password === ''){
@@ -54,7 +55,20 @@ const Dash = () => {
           setErrormsg("Enter a valid Password")
 
         }else{
-            navigate('/homepage')
+            UserLogin(data, {
+              headers: {
+                "Content-Type": "application/json",
+              },
+            })
+              .then((response) => {
+                navigate('/homepage')
+                alert("Account Logged in")
+              })
+              .catch((error) => {
+                alert(
+                  "Invalid Credentials!\nor your account may not activated\nPlease check your email for activation"
+                );
+              }); 
         }
     }
         
@@ -73,8 +87,8 @@ const Dash = () => {
             className="email"
             //placeholder="Email"
             type="type"
-            name="email"
-            value={data.email}
+            name="username"
+            value={data.username}
             onChange={handleInputChange}
             required = 'required'/>
             <span className="em">Email</span>

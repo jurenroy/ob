@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Headed from '../components/Headed'
 import '../styles/registration.css'
 import { useNavigate } from "react-router-dom";
-import { createUserProfile } from '../api';
+import { createUserProfile } from "../api";
 
 const Registration = () => {
     const navigate = useNavigate()
