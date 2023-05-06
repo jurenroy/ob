@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import Headed from '../components/Headed'
 import '../styles/registration.css'
-import { Navigation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { createUserProfile } from '../api';
 
@@ -12,19 +11,35 @@ const Registration = () => {
     const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     const passvalid = /^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9-]{7,}$/;
 
-    const [regdata, setRegData] = useState({
-        firstname: "",
-        lastname: "",
-        email: "",
-        birthdate:"",
-        gender:"",
-        password: "",
-        confirmpass: ""
+    const [data, setData] = useState({
+      first_name: "",
+      last_name: "",
+      gender: "",
+      birthday: "",
+      email: "",
+      password: "",
+      username: "",
     });
+
+    const [data2, setData2] = useState({
+      confirmpass: ""
+  });
+
+  
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setRegData((prevState) => ({ ...prevState, [name]: value }));
+        setData((prevState) => ({ ...prevState, [name]: value }));
+        const inputElement = document.querySelector(`input[name="${name}"]`);
+        if (inputElement) {
+          inputElement.classList.remove('error');
+          setErrormsg(' ');
+        }
+      };
+
+      const handleInputChange2 = (e) => {
+        const { name, value } = e.target;
+        setData2((prevState) => ({ ...prevState, [name]: value }));
         const inputElement = document.querySelector(`input[name="${name}"]`);
         if (inputElement) {
           inputElement.classList.remove('error');
@@ -36,7 +51,7 @@ const Registration = () => {
     const registered = () =>{
 
         // {kani kay kung wla kay ge input sa tanan}
-        if (regdata.firstname ==='' && regdata.lastname ==='' && regdata.email ==='' && regdata.birthdate ==='' && regdata.gender ==='' && regdata.password ==='' && regdata.confirmpass ===''){
+        if (data.first_name ==='' && data.last_name ==='' && data.email ==='' && data.birthday ==='' && data.gender ==='' && data.password ==='' && data2.confirmpass ===''){
                 // mo tunga ang txt if error
                 setErrormsg('Complete the input text above');
 
@@ -44,69 +59,85 @@ const Registration = () => {
                 document.querySelector('input[name="firstname"]').classList.add('error');
                 document.querySelector('input[name="lastname"]').classList.add('error');
                 document.querySelector('input[name="email"]').classList.add('error');
-                document.querySelector('input[name="birthdate"]').classList.add('error');
+                document.querySelector('input[name="birthday"]').classList.add('error');
                 document.querySelector('input[name="password"]').classList.add('error');
                 document.querySelector('input[name="confirmpass"]').classList.add('error');
 
                 // {kani kay kung wla kay ge input sa First Name}
-            }else if (regdata.firstname ===''){
+            }else if (data.first_name ===''){
                 setErrormsg('Enter your First Name');
                 document.querySelector('input[name="firstname"]').classList.add('error');
                 
                
                 // {kani kay kung wla kay ge input sa Last Name}
-            }else if (regdata.lastname ===''){
+            }else if (data.last_name ===''){
                 setErrormsg('Enter your Last Name');
                 document.querySelector('input[name="lastname"]').classList.add('error');
                 
                 
                 // {kani kay kung wla kay ge input sa Email}
-            }else if (regdata.email ===''){
+            }else if (data.email ===''){
                 setErrormsg('Enter your Email');
                 document.querySelector('input[name="email"]').classList.add('error');
 
                 // {kani kay sa Email Validation}
-            }else if (regex.test(regdata.email) === false){   
+            }else if (regex.test(data.email) === false){   
                 setErrormsg('Enter a valid Email');
                 document.querySelector('input[name="email"]').classList.add('error');
 
                 // {kani kay kung wla kay ge input sa Birth Date }
-            }else if (regdata.birthdate ===''){
-                setErrormsg('Enter your Birth Date');
-                document.querySelector('input[name="birthdate"]').classList.add('error');
+            }else if (data.birthday ===''){
+                setErrormsg('Enter your Birth Day');
+                document.querySelector('input[name="birthday"]').classList.add('error');
 
                 // {kani kay kung wla kay ge input sa Gender }
-            }else if (regdata.gender ===''){
+            }else if (data.gender ===''){
                 setErrormsg('Enter your Gender');
 
                 // {kani kay kung wla kay ge input sa Paswword}
-            }else if (regdata.password ===''){
+            }else if (data.password ===''){
                 setErrormsg('Enter your Password');
                 document.querySelector('input[name="password"]').classList.add('error');
 
                 // {kani kay sa Password Validation}
-            }else if(passvalid.test(regdata.password) === false ){
+            }else if(passvalid.test(data.password) === false ){
                 setErrormsg('Invalid Input Password');
                 document.querySelector('input[name="password"]').classList.add('error');
                 
                 // {kani kay kung wla kay ge input sa Confirm Password}
-            }else if (regdata.confirmpass ===''){
+            }else if (data2.confirmpass ===''){
                 setErrormsg('Enter your Confirm Password');
                 document.querySelector('input[name="confirmpass"]').classList.add('error');
 
                 // {kani kay sa Confirm Password Validation}
-            }else if(passvalid.test(regdata.confirmpass) === false ){
+            }else if(passvalid.test(data2.confirmpass) === false ){
                 setErrormsg('Invalid Input Confirm Password');
                 document.querySelector('input[name="confirmpass"]').classList.add('error'); 
 
-            }else if (regdata.password!==regdata.confirmpass){
+            }else if (data.password!==data2.confirmpass){
                 setErrormsg('Invalid Input Confirm Password');
                 document.querySelector('input[name="password"]').classList.add('error'); 
                 document.querySelector('input[name="confirmpass"]').classList.add('error'); 
 
             }else{
-                console.log(regdata)
-                navigate('/mandatoryprof')
+              createUserProfile(data, {
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              })
+                .then((response) => {
+                  console.log(response.data);
+                  alert(
+                    "Successfully Registered!\nPlease check your email\nfor activation"
+                  );
+                  navigate('/mandatoryprof')
+                })
+                .catch((error) => {
+                  console.log(error);
+                  console.log(error.request);
+                  console.log(data);
+                });
+
             }
         }
                
@@ -124,8 +155,15 @@ const Registration = () => {
                 className='fin'
                 type='type'
                 name="firstname"
-                value={regdata.firstname}
-                onChange={handleInputChange}
+                value={data.first_name}
+                onChange={(event) => {
+                  setData({ ...data, first_name: event.target.value });
+                  const inputElement = document.querySelector(`input[name="firstname"]`);
+                  if (inputElement) {
+                    inputElement.classList.remove('error');
+                    setErrormsg(' ');
+                  }
+                }}
                 />
                 
                 <text className='last'>Last Name</text>
@@ -133,33 +171,48 @@ const Registration = () => {
                 className='lin'
                 type='type'
                 name="lastname"
-                value={regdata.lastname}
-                onChange={handleInputChange}
+                value={data.last_name}
+                onChange={(event) => {
+                  setData({ ...data, last_name: event.target.value });
+                  const inputElement = document.querySelector(`input[name="lastname"]`);
+                  if (inputElement) {
+                    inputElement.classList.remove('error');
+                    setErrormsg(' ');
+                  }
+                }}
                 />
                 
-                <text className='ems'>Email</text>
+                <text className='ems'>Email Address</text>
                 <input 
                 className='ein'
                 type='email'
                 name="email"
-                value={regdata.email}
-                onChange={handleInputChange}
+                value={data.email}
+                onChange={(event) => {
+                  const email = event.target.value;
+                  setData({ ...data, email: email, username: email });
+                  const inputElement = document.querySelector(`input[name="email"]`);
+                  if (inputElement) {
+                    inputElement.classList.remove('error');
+                    setErrormsg(' ');
+                  }
+                }}
                 />
                 
 
-                <text className='bd'>Birthdate</text>
+                <text className='bd'>Birthday</text>
                 <input 
                 className='bin'
                 type='date'
-                name="birthdate"
-                value={regdata.birthdate}
+                name="birthday"
+                value={data.birthday}
                 onChange={handleInputChange}
                 />
 
 
                 <text className='gender'>Gender</text>
                 <select name="gender"
-                value={regdata.gender}
+                value={data.gender}
                 onChange={handleInputChange}
                 className='gin'>
                    <option value="" disabled select>....</option>
@@ -173,7 +226,7 @@ const Registration = () => {
                 className='pin'
                 type='password'
                 name="password"
-                value={regdata.password}
+                value={data.password}
                 onChange={handleInputChange}
                 />
 
@@ -183,8 +236,8 @@ const Registration = () => {
                 className='cin'
                 type='password'
                 name="confirmpass"
-                value={regdata.confirmpass}
-                onChange={handleInputChange}
+                value={data2.confirmpass}
+                onChange={handleInputChange2}
                 />
 
                 <button className='bot' onClick={registered}> Register </button>
