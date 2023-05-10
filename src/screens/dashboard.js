@@ -4,10 +4,13 @@ import "../components/styles.css";
 import ob from  "../assets/ob.png";
 import { UserLogin } from "../api";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { login } from '../components/Redux/Auth/AuthSlice';
 
 
 const Dash = () => {
     const navigate = useNavigate()
+    const dispatch = useDispatch();
     const [errormsg, setErrormsg] = useState("")
 
     const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -61,7 +64,8 @@ const Dash = () => {
               },
             })
               .then((response) => {
-                navigate('/homepage')
+                navigate('/homepage');
+                dispatch(login(data.username));
                 alert("Account Logged in")
               })
               .catch((error) => {

@@ -1,9 +1,17 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../components/confirmdialog.css";
+import { useDispatch } from 'react-redux';
+import { logout } from '../components/Redux/Auth/AuthSlice';
 
 function Confirm(props) {
   const signout = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());
+    signout("/");
+  };
 
   return (
     <div className="divback">
@@ -11,7 +19,7 @@ function Confirm(props) {
         <div className="dialogform">
           <text className="txtdialog">Are you sure you want to Logout?</text>
 
-          <button className="yesdialog" onClick={() => signout("/")}>
+          <button className="yesdialog" onClick={handleLogout}>
             <text>yes</text>
           </button>
           <button className="nodialog" onClick={() => props.setShow(false)}>
