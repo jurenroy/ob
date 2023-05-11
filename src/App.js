@@ -14,6 +14,7 @@ import MandatoryProf from './screens/MandatoryProf';
 import Registration from './screens/registration';
 import NotFoundPage from './screens/NotFoundPage';
 import NotYetAvailable from './screens/NotYetAvailable';
+import Samplok from './screens/Samplok';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             <Route path="/mandatoryprof" element={<MandatoryProf />} />
             <Route path="/error404" element={<NotFoundPage />} />
             <Route path="/error" element={<NotYetAvailable />} />
+            <Route path="/samplok" element={<Samplok />} />
           </Routes>
         </Router>
       </PersistGate>

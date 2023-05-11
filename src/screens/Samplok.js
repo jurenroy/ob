@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import Headed from "../components/Headed";
-import profiled from "../assets/profiled.png";
 import FileInput from "../components/FileInput";
 import ImageCropper from "../components/ImageCropper";
 
-const MandatoryProf = () => {
+function Samplok() {
   const [image, setImage] = useState("");
   const [currentPage, setCurrentPage] = useState("choose-img");
   const [imgAfterCrop, setImgAfterCrop] = useState("");
@@ -51,13 +49,9 @@ const MandatoryProf = () => {
     setImage("");
   };
 
-
   return (
-    <div style={{ backgroundColor: "lightgray", height:'100vh'}}>
-      <Headed />
-      <div className="container">
-        <div className="second">
-        {currentPage === "choose-img" ? (
+    <div className="container">
+      {currentPage === "choose-img" ? (
         <FileInput setImage={setImage} onImageSelected={onImageSelected} />
       ) : currentPage === "crop-img" ? (
         <ImageCropper
@@ -68,7 +62,7 @@ const MandatoryProf = () => {
       ) : (
         <div>
           <div>
-            <img src={imgAfterCrop} className="cropped-img" style={{height: '250px', width: '250px', borderRadius: 200}}/>
+            <img src={imgAfterCrop} className="cropped-img" />
           </div>
 
           <button
@@ -91,10 +85,8 @@ const MandatoryProf = () => {
           </button>
         </div>
       )}
-        </div>
-      </div>
     </div>
   );
-};
+}
 
-export default MandatoryProf;
+export default Samplok;
