@@ -7,7 +7,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { login } from '../components/Redux/Auth/AuthSlice';
 
-
 const Dash = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch();
@@ -84,7 +83,7 @@ const Dash = () => {
             <div className='container'>
           <div className='second'>
             <img src={ob} style={{position:'absolute', height: "200px", width: "200px", top:'10px', justifyContent: 'center', alignItems: 'center'}} />
-            <h1 style={{position:'absolute' , color: 'white', fontSize: '25px', top: '180px', marginLeft: "-350px", fontWeight: "0px", fontStyle: "Poppins"}}>LOGIN</h1>
+            <h1 style={{position:'absolute' , color: 'white', fontSize: '25px', top: '180px', marginLeft: "-350px", fontWeight: "0px", fontStyle: "Poppins"}}>LOGIN </h1>
             <h3 style={{position:'absolute',color: '#828282', fontSize: '15px', top: '210px', marginLeft: "-170px", fontWeight: "0px", fontStyle: "Poppins"}}>Sign in to continue to our application</h3>
            
             <input 

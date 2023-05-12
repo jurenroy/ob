@@ -15,8 +15,8 @@ const Headeded = () => {
   return (
     <div style={{backgroundColor: '#33083A', display: 'flex', height: '70px', position: 'fixed', top: '0', left: '0', right: '0', zIndex: '999' }}>
       <div style={{ display: 'flex', alignItems: 'center', marginLeft: '10px' }}>
-        <img src={ob} style={{ height: "50px", width: "50px", marginBottom:'10px' , cursor: 'pointer', marginTop: '5px'}} alt="Logo" onClick={() => navigate('/homepage')}/>
-        <h1 style={{ color: '#fff', marginLeft: '10px', fontSize: '24px', lineHeight: '80px' , cursor: 'pointer'}} onClick={() => navigate('/homepage')}>ONLINE BUGAW</h1>
+        <img src={ob} style={{ height: "50px", width: "50px", marginBottom:'10px' , cursor: 'pointer', marginTop: '5px'}} alt="Logo" onClick={() => navigate('/')}/>
+        <h1 style={{ color: '#fff', marginLeft: '10px', fontSize: '24px', lineHeight: '80px' , cursor: 'pointer'}} onClick={() => navigate('/')}>ONLINE BUGAW</h1>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', marginLeft: 'auto', marginRight: 'auto'}}>
         <img src={loveus} style={{ height: "130px", width: "130px", marginTop:'-30px',  marginBottom:'-35px',marginLeft:-130, cursor: 'pointer' }} alt="Logo" onClick={() => navigate('/error')}/>

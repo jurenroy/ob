@@ -1,4 +1,5 @@
 import React,{ useEffect, useState } from "react";
+import { useSelector } from 'react-redux';
 import Headeded from "../components/Headeded";
 import NotFoundPage from "./NotFoundPage";
 import '../styles/Profile.css'
@@ -13,6 +14,9 @@ const Profile = () => {
   }
   const { username } = useParams();
   const [users, setUsers] = useState([]);
+  const auth = useSelector((state) => state.auth);
+
+  const showButtons = username === auth.username;
 
   useEffect(() => {
     // Fetch user data from the API
@@ -53,23 +57,21 @@ const Profile = () => {
             <h2 style={{color:'#fff', marginLeft:'-13rem', marginTop:'13rem', fontFamily: 'serif', textDecorationLine:'underline'}}>{filteredUser.first_name} {filteredUser.last_name}, {ageInYears || 'Unknown'}</h2>
             <h4 style={{color:'#fff', marginLeft:'-25rem', marginTop:'15rem', fontFamily: 'serif'}}>Interested in: {filteredUser.gender === "Male" ? "Female" : "Male"}</h4>
             <div class = "Bg-container3" style={{marginTop: '17rem', marginLeft: '1rem'}}> Bio: I love Online Bugaw</div>
-            <div class = "Bg-container4" style={{marginTop: '25rem', marginLeft: '1rem'}}> Address:Bulua, Cagayan de Oro City</div>           
+            <div class = "Bg-container4" style={{marginTop: '25rem', marginLeft: '1rem'}}> Address:Bulua, Cagayan de Oro City  {auth.username}</div>           
             <div style={{justifyContent: 'space-evenly'}}>
             <div classname="button-edit" style={{ marginTop:600, marginLeft: -30}}>
-              <button Variant="contained" as="input" type="button" className="btn-edit">
+            {showButtons && (
+              <button Variant="contained" as="input" type="button" className="btn-edit" onClick={() => {console.log(auth.isLoggedIn)}}>
                 <text className="button-text">EDIT</text>
-              </button>
+              </button>)}
             </div>
             <div classname="button-edit" style={{ marginTop:600, marginLeft: 200 }}>
-              <button
-                Variant="contained"
-                as="input"
-                type="button"
-                className="btn-edit"
+            {showButtons && (
+              <button Variant="contained" as="input" type="button"className="btn-edit"
                 onClick={() => setShow(true)}
               >
                 <text className="button-text">LOGOUT</text>
-              </button>
+              </button>)}
             </div>
             </div>
           </div>

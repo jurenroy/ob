@@ -17,6 +17,7 @@ import NotYetAvailable from './screens/NotYetAvailable';
 import Samplok from './screens/Samplok';
 
 function App() {
+  
   return (
     <Provider store={store}>
 	    <PersistGate loading={null} persistor={persistor}>
@@ -34,6 +35,7 @@ function App() {
             <Route path="/error404" element={<NotFoundPage />} />
             <Route path="/error" element={<NotYetAvailable />} />
             <Route path="/samplok" element={<Samplok />} />
+            <Route path="*" element={<NotFoundPage />} /> {/* Catch-all route */}
           </Routes>
         </Router>
       </PersistGate>
