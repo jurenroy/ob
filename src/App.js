@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store, persistor } from './components/Redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
-import Dash from './screens/dashboard';
-import Homepage from './screens/homepage';
 import LoveUs from './screens/Loveus';
 import Dobook from './screens/Dobook.';
 import Message from './screens/message';
@@ -21,7 +19,7 @@ function App() {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <Router basename="/ob">
+        <Router >
           <Routes>
             <Route exact path="/" element={<Highway />} />
             <Route path="/loveus" element={<LoveUs />} />

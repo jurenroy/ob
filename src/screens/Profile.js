@@ -46,6 +46,8 @@ const Profile = () => {
   ? Math.floor((new Date() - new Date(filteredUser.birthday)) / (1000 * 60 * 60 * 24 * 365.25))
   : null;
 
+
+
     return( 
         <div style={{justifyContent:"center"}}>
         <Headeded/>
@@ -53,7 +55,7 @@ const Profile = () => {
         {filteredUser ? (
           <div class = "Bg-container2">
             <h2 style={{color:'#fff', marginLeft:'17rem', fontFamily: 'serif'}}>Profile</h2>
-            <img src={profiled} style={{ height: "10rem", width: "10rem", marginTop:'45px', marginLeft:'-7rem', marginBottom:'50rem'}} />
+            <img src={profiled} style={{ height: "10rem", width: "10rem", marginTop:'45px', marginLeft:'-7rem', marginBottom:'50rem'}} alt='logo'/>
             <h2 style={{color:'#fff', marginLeft:'-13rem', marginTop:'13rem', fontFamily: 'serif', textDecorationLine:'underline'}}>{filteredUser.first_name} {filteredUser.last_name}, {ageInYears || 'Unknown'}</h2>
             <h4 style={{color:'#fff', marginLeft:'-25rem', marginTop:'15rem', fontFamily: 'serif'}}>Interested in: {filteredUser.gender === "Male" ? "Female" : "Male"}</h4>
             <div class = "Bg-container3" style={{marginTop: '17rem', marginLeft: '1rem'}}> Bio: I love Online Bugaw</div>

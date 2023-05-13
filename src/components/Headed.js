@@ -1,6 +1,5 @@
 import React from "react";
 import ob from '../assets/ob.png'
-import { Navigation } from "react-router-dom";
 import { useNavigate, useLocation} from "react-router-dom";
 
 const Headed = () => {

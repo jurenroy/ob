@@ -82,7 +82,7 @@ const Dash = () => {
             <Headed style={{ position: 'fixed', width: '100%' }} />
             <div className='container'>
           <div className='second'>
-            <img src={ob} style={{position:'absolute', height: "200px", width: "200px", top:'10px', justifyContent: 'center', alignItems: 'center'}} />
+            <img src={ob} style={{position:'absolute', height: "200px", width: "200px", top:'10px', justifyContent: 'center', alignItems: 'center'}} alt='logo'/>
             <h1 style={{position:'absolute' , color: 'white', fontSize: '25px', top: '180px', marginLeft: "-350px", fontWeight: "0px", fontStyle: "Poppins"}}>LOGIN </h1>
             <h3 style={{position:'absolute',color: '#828282', fontSize: '15px', top: '210px', marginLeft: "-170px", fontWeight: "0px", fontStyle: "Poppins"}}>Sign in to continue to our application</h3>
            

@@ -36,7 +36,7 @@ const ForgotPass = () => {
             <Headed/>
             <div className='container'>
                 <div className="forgotpasscon">
-                    <img src={ob} style={{height: '200px', width: '200px', marginTop:'100px'}} />
+                    <img src={ob} style={{height: '200px', width: '200px', marginTop:'100px'}} alt='logo'/>
                     <h1 style={{color: 'white', fontSize: '50px',fontStyle: 'Poppins', marginTop: '330px', alignItems: 'center', marginLeft: '-100', position: 'absolute'}}>Forgot Password</h1>
 
 

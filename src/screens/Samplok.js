@@ -62,7 +62,7 @@ function Samplok() {
       ) : (
         <div>
           <div>
-            <img src={imgAfterCrop} className="cropped-img" />
+            <img src={imgAfterCrop} className="cropped-img" alt='logo'/>
           </div>
 
           <button

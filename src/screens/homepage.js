@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Headeded from '../components/Headeded'
 import '../styles/homepage.css'
-import axios from "axios";
 
 const Homepage = () => {
   const [users, setUsers] = useState([]);
@@ -38,7 +37,6 @@ const Homepage = () => {
       <Headeded />
       <div className='second'>
       <h1 style={{color: 'white'}}>User List</h1>
-      <h1 style={{color: 'white'}}></h1>
       <ul style={{color: 'white'}}>
         {users
         .filter(user => user.id !== 1)
