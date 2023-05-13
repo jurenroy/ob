@@ -63,7 +63,7 @@ const Dash = () => {
               },
             })
               .then((response) => {
-                navigate('/homepage');
+                navigate('/');
                 dispatch(login(data.username));
                 alert("Account Logged in")
               })
