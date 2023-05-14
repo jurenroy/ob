@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import profiled from "../assets/profiled.png"
 
 function FileInput({ onImageSelected }) {
   const inputRef = useRef();
@@ -26,8 +27,9 @@ function FileInput({ onImageSelected }) {
         onChange={handleOnChange}
         style={{ display: "none" }}
       />
-
-      <button className="btn" onClick={onChooseImg}>
+      <img src={profiled} style={{ height: "250px", width: "250px", marginTop:'-150px', marginLeft: '-23px', position: 'absolute',  }} alt="Logo" />
+      <h1 style={{color: 'white', marginLeft: '40px', marginTop: 100}}>PROFILE</h1>
+      <button className="btn" style={{padding: '10px', width: '200px'}} onClick={onChooseImg}>
         Choose Image
       </button>
     </div>

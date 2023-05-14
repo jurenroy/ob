@@ -68,26 +68,28 @@ const MandatoryProf = () => {
       ) : (
         <div>
           <div>
-            <img src={imgAfterCrop} className="cropped-img" style={{height: '250px', width: '250px', borderRadius: 200}} alt='logo'/>
+            <img src={imgAfterCrop} className="cropped-img" style={{height: '185px', width: '185px', borderRadius: 200, position: 'absolute', marginTop: '-118px', marginLeft: '31px'}} alt='logo'/>
           </div>
 
+          <h2 style={{color: 'white', marginLeft: '30px', marginTop: 100,}}>Your Profile Picture</h2>
           <button
+          style={{padding: '10px', width: '100px', marginRight: 50, marginTop: '10px'}}
             onClick={() => {
               setCurrentPage("crop-img");
             }}
             className="btn"
           >
-            Crop
+            Edit
           </button>
 
           <button
+          style={{padding: '10px', width: '100px'}}
             onClick={() => {
-              setCurrentPage("choose-img");
-              setImage("");
+              
             }}
             className="btn"
           >
-            New Image
+            Done
           </button>
         </div>
       )}

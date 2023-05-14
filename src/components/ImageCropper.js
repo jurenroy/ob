@@ -28,11 +28,11 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
           onCropComplete={onCropComplete}
           style={{
             containerStyle: {
-              width: "40%",
-              height: "40%",
+              width: "35%",
+              height: "35%",
               backgroundColor: "#fff",
-              marginTop: 20,
-              marginLeft: 150,
+              marginTop: 42,
+              marginLeft: 163,
               borderRadius: 100
             },
           }}
@@ -44,12 +44,15 @@ function ImageCropper({ image, onCropDone, onCropCancel }) {
           <input type="radio" value={1 / 1} name="ratio" /> 1:1
         </div>
 
-        <button className="btn btn-outline" onClick={onCropCancel}>
+        <h2 style={{color: 'white', marginLeft: '50px', marginTop: 100}}>Cropping Stage</h2>
+
+        <button className="btn btn-outline" onClick={onCropCancel} style={{padding: '10px', width: '100px', marginRight: '50px'}}>
           Cancel
         </button>
 
         <button
           className="btn"
+          style={{padding: '10px', width: '100px', marginTop: '10px'}}
           onClick={() => {
             onCropDone(croppedArea);
           }}
