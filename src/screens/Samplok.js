@@ -1,92 +1,36 @@
-import React, { useState } from "react";
-import FileInput from "../components/FileInput";
-import ImageCropper from "../components/ImageCropper";
+import React, { useState } from 'react';
+import axios from 'axios';
 
-function Samplok() {
-  const [image, setImage] = useState("");
-  const [currentPage, setCurrentPage] = useState("choose-img");
-  const [imgAfterCrop, setImgAfterCrop] = useState("");
+const Samplok = () => {
+  const [username, setUsername] = useState('Samplox@sampak.ok');
+  const [profilePic, setProfilePic] = useState(null);
 
-  // Invoked when new image file is selected
-  const onImageSelected = (selectedImg) => {
-    setImage(selectedImg);
-    setCurrentPage("crop-img");
-  };
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
 
-  // Generating Cropped Image When Done Button Clicked
-  const onCropDone = (imgCroppedArea) => {
-    const canvasEle = document.createElement("canvas");
-    canvasEle.width = imgCroppedArea.width;
-    canvasEle.height = imgCroppedArea.height;
+    const formData = new FormData();
+    formData.append('profile_pic', profilePic);
 
-    const context = canvasEle.getContext("2d");
-
-    let imageObj1 = new Image();
-    imageObj1.src = image;
-    imageObj1.onload = function () {
-      context.drawImage(
-        imageObj1,
-        imgCroppedArea.x,
-        imgCroppedArea.y,
-        imgCroppedArea.width,
-        imgCroppedArea.height,
-        0,
-        0,
-        imgCroppedArea.width,
-        imgCroppedArea.height
-      );
-
-      const dataURL = canvasEle.toDataURL("image/jpeg");
-
-      setImgAfterCrop(dataURL);
-      setCurrentPage("img-cropped");
-    };
-  };
-
-  // Handle Cancel Button Click
-  const onCropCancel = () => {
-    setCurrentPage("choose-img");
-    setImage("");
+    axios.post(`http://localhost:8000/update-profile/${username}/`, formData)
+      .then((response) => {
+        console.log(response.data);
+        // Handle the response or perform any additional actions
+      })
+      .catch((error) => {
+        console.error(error);
+        // Handle the error
+      });
   };
 
   return (
-    <div className="container">
-      {currentPage === "choose-img" ? (
-        <FileInput setImage={setImage} onImageSelected={onImageSelected} />
-      ) : currentPage === "crop-img" ? (
-        <ImageCropper
-          image={image}
-          onCropDone={onCropDone}
-          onCropCancel={onCropCancel}
-        />
-      ) : (
-        <div>
-          <div>
-            <img src={imgAfterCrop} className="cropped-img" alt='logo'/>
-          </div>
-
-          <button
-            onClick={() => {
-              setCurrentPage("crop-img");
-            }}
-            className="btn"
-          >
-            Crop
-          </button>
-
-          <button
-            onClick={() => {
-              setCurrentPage("choose-img");
-              setImage("");
-            }}
-            className="btn"
-          >
-            New Image
-          </button>
-        </div>
-      )}
+    <div>
+      <form onSubmit={handleFormSubmit} encType="multipart/form-data">
+        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+        <input type="file" onChange={(e) => setProfilePic(e.target.files[0])} />
+        <button type="submit">Update Profile</button>
+      </form>
     </div>
   );
-}
+};
 
 export default Samplok;

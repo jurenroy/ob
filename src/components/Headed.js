@@ -13,7 +13,7 @@ const Headed = () => {
     secondPath = "/";
   } else if (location.pathname === "/") {
     secondText = "Sign Up";
-  } else if (location.pathname === "/forgotpass") {
+  } else if (location.pathname === "/forgotpass" ) {
     secondText = "";
   }
 

@@ -130,7 +130,8 @@ const Registration = () => {
                   alert(
                     "Successfully Registered!\nPlease check your email\nfor activation"
                   );
-                  navigate('/mandatoryprof')
+                  navigate(`/mandatoryprof/${data.username}`);
+                  
                 })
                 .catch((error) => {
                   console.log(error);

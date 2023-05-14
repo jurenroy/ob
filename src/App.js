@@ -28,7 +28,7 @@ function App() {
             <Route path="/message" element={<Message />} />
             <Route path="/registration" element={<Registration />} />
             <Route path="/forgotpass" element={<ForgotPass />} />
-            <Route path="/mandatoryprof" element={<MandatoryProf />} />
+            <Route path="/mandatoryprof/:username" element={<MandatoryProf />} />
             <Route path="/error404" element={<NotFoundPage />} />
             <Route path="/error" element={<NotYetAvailable />} />
             <Route path="/samplok" element={<Samplok />} />
