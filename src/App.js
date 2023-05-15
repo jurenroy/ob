@@ -19,7 +19,7 @@ function App() {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <Router >
+        <Router basename='ob'>
           <Routes>
             <Route exact path="/" element={<Highway />} />
             <Route path="/loveus" element={<LoveUs />} />

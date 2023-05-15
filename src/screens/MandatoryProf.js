@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Headed from "../components/Headed";
 import FileInput from "../components/FileInput";
 import ImageCropper from "../components/ImageCropper";
 import Samplok from "../screens/Samplok";
 import { useParams } from "react-router-dom";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 const MandatoryProf = () => {
-  const navigate = useNavigate();
   const { username } = useParams();
   const [image, setImage] = useState("");
   const [currentPage, setCurrentPage] = useState("choose-img");
@@ -63,20 +60,6 @@ const MandatoryProf = () => {
     setCurrentPage("choose-img");
     setImage("");
   };
-
-  const handleProfilePicChange = (file) => {
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        const base64data = reader.result;
-        setProfilePic(base64data);
-      };
-      reader.readAsDataURL(file);
-    } else {
-      setProfilePic("");
-    }
-  };
-  
 
   const handleDoneButtonClick = () => {
     if (profilePic) {
