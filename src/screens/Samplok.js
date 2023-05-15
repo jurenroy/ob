@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
-const Samplok = () => {
-  const [username, setUsername] = useState('Samplox@sampak.ok');
+const Samplok = ({ initialUsername }) => {
+  const [username, setUsername] = useState(initialUsername);
   const [profilePic, setProfilePic] = useState(null);
+  const navigate = useNavigate();
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -15,6 +17,7 @@ const Samplok = () => {
       .then((response) => {
         console.log(response.data);
         // Handle the response or perform any additional actions
+        navigate('/')
       })
       .catch((error) => {
         console.error(error);
@@ -25,9 +28,9 @@ const Samplok = () => {
   return (
     <div>
       <form onSubmit={handleFormSubmit} encType="multipart/form-data">
-        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-        <input type="file" onChange={(e) => setProfilePic(e.target.files[0])} />
-        <button type="submit">Update Profile</button>
+        <input type="text" value={username}  onChange={(e) => setUsername(e.target.value)} hidden/>
+        <input type="file" onChange={(e) => setProfilePic(e.target.files[0])} style={{ color: 'white', marginLeft: 50 }} />
+        <button type="submit" style={{padding: 10, width: 200, marginTop: 100, position: 'absolute', marginLeft: -237}}>Update Profile</button>
       </form>
     </div>
   );

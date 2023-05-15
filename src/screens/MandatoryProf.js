@@ -79,8 +79,24 @@ const MandatoryProf = () => {
   
 
   const handleDoneButtonClick = () => {
-    console.log(profilePic);
+    if (profilePic) {
+      const link = document.createElement('a');
+      link.href = profilePic;
+      link.download = 'profile-pic.jpg';
+      link.style.display = 'none';
+  
+      // Append the link to the document body
+      document.body.appendChild(link);
+  
+      // Programmatically click the link to initiate the download
+      link.click();
+  
+      // Remove the link from the document body
+      document.body.removeChild(link);
+    }
+    setCurrentPage("upload-img");
   };
+  
 
   return (
     <div style={{ backgroundColor: "lightgray", height: "100vh" }}>
@@ -95,6 +111,8 @@ const MandatoryProf = () => {
               onCropDone={onCropDone}
               onCropCancel={onCropCancel}
             />
+          ) : currentPage === "upload-img" ? (
+            <Samplok initialUsername={username} />
           ) : (
             <div>
               <div>
@@ -116,42 +134,33 @@ const MandatoryProf = () => {
               <h2 style={{ color: "white", marginLeft: "30px", marginTop: 100 }}>
                 Your Profile Picture
               </h2>
-
-              <Samplok
-                initialUsername={username}
-                initialProfilePic={profilePic}
-                onFileChange={handleProfilePicChange}
-                doneButtonClicked={false}
-                onDoneButtonClick={handleDoneButtonClick}
-              />
-
               <button
                 style={{
                   padding: "10px",
                   width: "100px",
                   marginRight: 50,
                   marginTop: "10px",
-                  }}
-                  onClick={() => {
+                }}
+                onClick={() => {
                   setCurrentPage("crop-img");
-                  }}
-                  className="btn"
-                  >
-                  Edit
-                  </button>
-                  <button
-                  style={{ padding: "10px", width: "100px" }}
-                  className="btn"
-                  onClick={handleDoneButtonClick}
-                  >
-                  Done
-                  </button>
-                  </div>
-                  )}
-                  </div>
-                  </div>
-                  </div>
-                  );
-                  };
+                }}
+                className="btn"
+              >
+                Edit
+              </button>
+              <button
+                style={{ padding: "10px", width: "100px" }}
+                className="btn"
+                onClick={handleDoneButtonClick}
+              >
+                Download
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
                   
-                  export default MandatoryProf;
+export default MandatoryProf;
