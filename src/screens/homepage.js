@@ -9,7 +9,7 @@ const Homepage = () => {
     const fetchUsers = async () => {
       try {
         const response = await fetch(
-          "https://jurenroy.pythonanywhere.com/api/v1/accounts/users/",
+          "https://onlinebugaw.pythonanywhere.com/api/v1/accounts/users/",
           {
             headers: {
               Authorization: "Token 7a75f7cd22326a6d3c13112d856e55644ef39592",

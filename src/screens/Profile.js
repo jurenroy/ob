@@ -23,7 +23,7 @@ const Profile = () => {
     const fetchUsers = async () => {
       try {
         const response = await fetch(
-          "https://jurenroy.pythonanywhere.com/users/"
+          "https://onlinebugaw.pythonanywhere.com/users/"
         );
 
         if (response.ok) {
