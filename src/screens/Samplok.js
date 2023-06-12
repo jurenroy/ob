@@ -13,7 +13,7 @@ const Samplok = ({ initialUsername }) => {
     const formData = new FormData();
     formData.append('profile_pic', profilePic);
 
-    axios.post(`http://onlinebugaw.pythonanywhere.com/update-profile/${username}/`, formData)
+    axios.post(`https://onlinebugaw.pythonanywhere.com/update-profile/${username}/`, formData)
       .then((response) => {
         console.log(response.data);
         // Handle the response or perform any additional actions
