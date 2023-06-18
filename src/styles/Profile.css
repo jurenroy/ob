@@ -9,19 +9,21 @@
     display: flex;
     background-color:#33083A;
     margin-top: 5rem;
-    height: 30rem;
+    height: 25rem;
     width: 40rem;
     box-shadow: 8px 9px 8px 5px black;
+    flex-direction: column;
+    justify-content: center;
 }.Bg-container3{
     background-color: white;
-    height: 3rem;
-    width: 37.7rem;
+    height: 32px;
+    width: 37.2rem;
     border-radius: 1%;
     position: absolute;
 }.Bg-container4{
     background-color: white;
-    height: 3rem;
-    width: 37.7rem;
+    height: 32px;
+    width: 37.2rem;
     border-radius: 1%;
     position:absolute;
 }.button-text{

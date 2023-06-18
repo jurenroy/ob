@@ -56,27 +56,30 @@
       <div className="container">
         <Headeded />
         <div className="secondss">
-          <h1 style={{ color: 'white', marginBottom: '-50', marginTop: '-60px' }}>Profile</h1>
+        <h2 style={{color:'#fff', fontFamily: 'serif', marginTop: '-100px', fontSize: '30px', fontWeight: 'bold'}}>Profile</h2>
           {users.length > 0 && currentIndex < users.length ? (
             <div style={{ color: 'white' }}>
               <div>
                 <img 
-                  style={{height: '200px', width: '200px', borderRadius: '100px'}}
+                  style={{height: '180px', width: '180px', borderRadius: '100px'}}
                   src={users[currentIndex].profile_pic ? `https://onlinebugaw.pythonanywhere.com${users[currentIndex].profile_pic}` : profile_pic}
                   alt="Profile Picture"
                 />
               </div>
-              <div style = {{textDecoration: 'underline', textAlign: 'center'}}>{users[currentIndex].first_name} {users[currentIndex].last_name}, {calculateAge(users[currentIndex].birthday)}</div>
-              <div style = {{textAlign: 'center'}}>Interested in: {users[currentIndex].gender === "Male" ? "Female" : "Male"}</div>
+              <div style = {{textDecoration: 'underline', textAlign: 'center', fontWeight: 'bold', fontSize: '30px', marginTop: '-5px'}}>{users[currentIndex].first_name} {users[currentIndex].last_name}, {calculateAge(users[currentIndex].birthday)}</div>
+              <div style = {{textAlign: 'left', marginLeft: '-205px', fontWeight: 'bold'}}>Interested in: {users[currentIndex].gender === "Male" ? "Female" : "Male"}</div>
+
+              <div class = "Bg-container3" style={{marginTop: '1rem', marginLeft: '-210px', color: 'black', paddingLeft: '10px'}}>{' '} Bio: I love Online Bugaw</div>
+              <div class = "Bg-container4" style={{marginTop: '4rem', marginLeft: '-210px', color: 'black', paddingLeft: '10px'}}>{' '} Address:Bulua, Cagayan de Oro City</div>  
               
-              <div style={{marginTop: '100px', position: 'absolute', marginLeft: '-50px'}}> 
+              <div style={{marginTop: '125px', position: 'absolute'}}> 
               <img 
-              style = {{height: '130px', width: '130px', marginLeft: '-20px'}}
+              style = {{height: '100px', width: '100px', marginLeft: '-70px'}}
               src = {broke}
               onClick={handleNext}/>
 
               <img 
-              style = {{height: '130px', width: '130px',marginLeft: '70px' }}
+              style = {{height: '100px', width: '100px',marginLeft: '120px' }}
               src = {heart}
               onClick={handleNext}/>
               </div>

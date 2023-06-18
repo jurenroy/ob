@@ -52,23 +52,23 @@ const Profile = () => {
     return( 
         <div style={{justifyContent:"center"}}>
         <Headeded/>
-        <div class = "Bg-container">
+        <div class = "container">
         {filteredUser ? (
-          <div class = "Bg-container2">
-            <h2 style={{color:'#fff', marginLeft:'17rem', fontFamily: 'serif'}}>Profile</h2>
-            <img src={filteredUser.profile_pic ? `https://onlinebugaw.pythonanywhere.com${filteredUser.profile_pic}` : profiled} alt="Profile Picture" style={{ height: "10rem", width: "10rem", marginTop:'45px', marginLeft:'-7rem', marginBottom:'50rem', borderRadius: '100px'}}/>
-            <h2 style={{color:'#fff', marginLeft:'-13rem', marginTop:'13rem', fontFamily: 'serif', textDecorationLine:'underline'}}>{filteredUser.first_name} {filteredUser.last_name}, {ageInYears || 'Unknown'}</h2>
-            <h4 style={{color:'#fff', marginLeft:'-25rem', marginTop:'15rem', fontFamily: 'serif'}}>Interested in: {filteredUser.gender === "Male" ? "Female" : "Male"}</h4>
-            <div class = "Bg-container3" style={{marginTop: '17rem', marginLeft: '1rem'}}>Bio: I love Online Bugaw</div>
-            <div class = "Bg-container4" style={{marginTop: '25rem', marginLeft: '1rem'}}>Address:Bulua, Cagayan de Oro City  {auth.username}</div>           
-            <div style={{justifyContent: 'space-evenly'}}>
-            <div classname="button-edit" style={{ marginTop:600, marginLeft: 100}}>
+          <div class = "secondss">
+            <h2 style={{color:'#fff', fontFamily: 'serif', marginTop: '660px', fontSize: '30px', fontWeight: 'bold'}}>Profile</h2>
+            <img src={filteredUser.profile_pic ? `https://onlinebugaw.pythonanywhere.com${filteredUser.profile_pic}` : profiled} alt="Profile Picture" style={{ height: "180px", width: "180px", marginBottom:'50rem', borderRadius: '100px'}}/>
+            <h2 style={{color:'#fff', fontFamily: 'serif', textDecorationLine:'underline', position: 'absolute', marginTop: '170px'}}>{filteredUser.first_name} {filteredUser.last_name}, {ageInYears || 'Unknown'}</h2>
+            <h4 style={{color:'#fff', fontFamily: 'serif', position: 'absolute', marginTop: '230px', marginLeft: '-450px'}}>Interested in: {filteredUser.gender === "Male" ? "Female" : "Male"}</h4>
+            <div class = "Bg-container3" style={{marginTop: '17rem', paddingLeft: '10px'}}>Bio: I love Online Bugaw</div>
+            <div class = "Bg-container4" style={{marginTop: '22rem', paddingLeft: '10px'}}>Address:Bulua, Cagayan de Oro City</div>           
+            <div style={{justifyContent: 'space-evenly', position: 'absolute', marginTop: '650px'}}>
+            <div classname="button-edit" >
             {showButtons && (
               <button Variant="contained" as="input" type="button" className="btn-edit" onClick={() => {navigate(`/mandatoryprof/${username}`);}}>
                 <text className="button-text">EDIT</text>
               </button>)}
             </div>
-            <div classname="button-edit" style={{ marginTop:600, marginLeft: 300 }}>
+            <div classname="button-edit" style={{ marginLeft: '250px' }}>
             {showButtons && (
               <button Variant="contained" as="input" type="button"className="btn-edit"
                 onClick={() => setShow(true)}

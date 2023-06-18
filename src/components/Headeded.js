@@ -11,6 +11,22 @@ const Headeded = () => {
   const navigate = useNavigate();
   const auth = useSelector((state) => state.auth);
   const [profilePic, setProfilePic] = useState(null);
+  const [zoomLevel, setZoomLevel] = useState(100);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const currentZoomLevel = Math.round((window.innerWidth / window.outerWidth) * 100);
+      setZoomLevel(currentZoomLevel);
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     const fetchProfilePic = async () => {
@@ -42,21 +58,33 @@ const Headeded = () => {
   }, [auth.username]);
 
   return (
-    <div style={{backgroundColor: '#33083A', display: 'flex', height: '70px', position: 'fixed', top: '0', left: '0', right: '0', zIndex: '999' }}>
+    <div style={{ backgroundColor: '#33083A', display: 'flex', height: '70px', position: 'fixed', top: '0', left: '0', right: '0', zIndex: '999' }}>
       <div style={{ display: 'flex', alignItems: 'center', marginLeft: '10px' }}>
-        <img src={ob} style={{ height: "50px", width: "50px", marginBottom:'10px' , cursor: 'pointer', marginTop: '5px'}} alt="Logo" onClick={() => navigate('/')}/>
-        <h1 style={{ position:'absolute' ,color: '#fff', marginLeft: '60px', fontSize: '24px', lineHeight: '80px' , cursor: 'pointer'}} onClick={() => navigate('/')}>ONLINE BUGAW</h1>
+        <img src={ob} style={{ height: "50px", width: "50px", marginBottom: '10px', cursor: 'pointer', marginTop: '5px' }} alt="Logo" onClick={() => navigate('/')} />
+        {zoomLevel > 67 && (
+          <>
+            <h1 style={{ position: 'absolute', color: '#fff', marginLeft: '60px', fontSize: '24px', lineHeight: '70px', cursor: 'pointer', whiteSpace: 'nowrap' }} onClick={() => navigate('/')}>ONLINE BUGAW</h1>
+            <style>{`
+              @media (max-width: 768px) {
+                h1#onlineBugawText {
+                  display: none;
+                }
+              }
+            `}</style>
+          </>
+        )}
       </div>
-      <div style={{ display: 'flex', alignItems: 'center', marginLeft: 'auto', marginRight: 'auto'}}>
-        <img src={loveus} style={{ height: "130px", width: "130px", marginTop:'-30px',  marginBottom:'-35px', cursor: 'pointer' }} alt="Logo" onClick={() => navigate('/error')}/>
-        <img src={dobook} style={{ height: "130px", width: "130px", marginTop:'-30px',  marginBottom:'-35px', cursor: 'pointer' }} alt="Logo" onClick={() => navigate('/error')}/>
+      <div style={{ display: 'flex', alignItems: 'center', marginLeft: 'auto', marginRight: 'auto' }}>
+        <img src={loveus} style={{ height: "130px", width: "130px", marginTop: '-30px', marginBottom: '-35px', cursor: 'pointer', marginLeft: '60px' }} alt="Logo" onClick={() => navigate('/error')} />
+        <img src={dobook} style={{ height: "130px", width: "130px", marginTop: '-30px', marginBottom: '-35px', cursor: 'pointer' }} alt="Logo" onClick={() => navigate('/error')} />
       </div>
-      <div style={{ display: 'flex', alignItems: 'center', marginRight: '10px'}}>
-        <img src={messages} style={{ height: "60px", width: "60px", marginTop:'5px', marginBottom:'10px', cursor: 'pointer', marginLeft: '-10%' }} alt="Logo" onClick={() => navigate('/error')}/>
+      <div style={{ display: 'flex', alignItems: 'center', marginRight: '10px' }}>
+        <img src={messages} style={{ height: "60px", width: "60px", marginTop: '5px', marginBottom: '10px', cursor: 'pointer' }} alt="Logo" onClick={() => navigate('/error')} />
         {profilePic ? (
-          <img src={`https://onlinebugaw.pythonanywhere.com${profilePic}`} style={{ height: "50px", width: "50px", marginTop:'15px', marginBottom:'10px', cursor: 'pointer', marginLeft: '20px', borderRadius: '100px' }} alt="Profile Picture" onClick={() => navigate(`/profile/${auth.username}`)}/>
+          // eslint-disable-next-line
+          <img src={`https://onlinebugaw.pythonanywhere.com${profilePic}`} style={{ height: "50px", width: "50px", marginTop: '10px', marginBottom: '10px', cursor: 'pointer', marginLeft: '20px', borderRadius: '100px' }} alt="Profile Picture" onClick={() => navigate(`/profile/${auth.username}`)} />
         ) : (
-          <img src={profiled} style={{ height: "60px", width: "60px", marginTop:'5px', marginBottom:'10px', cursor: 'pointer', marginLeft: '30px' }} alt="Logo" onClick={() => navigate(`/profile/${auth.username}`)}/>
+          <img src={profiled} style={{ height: "60px", width: "60px", marginTop: '5px', marginBottom: '10px', cursor: 'pointer', marginLeft: '30px' }} alt="Logo" onClick={() => navigate(`/profile/${auth.username}`)} />
         )}
       </div>
     </div>
