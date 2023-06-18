@@ -5,10 +5,11 @@ import NotFoundPage from "./NotFoundPage";
 import '../styles/Profile.css'
 import profiled from '../assets/profiled.png'
 import Confirm from "../components/ConfirmDialog";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const [show , setShow] = useState(false)
+  const navigate = useNavigate();
   const handleNoClick = () => {
     setShow(false);
   }
@@ -63,7 +64,7 @@ const Profile = () => {
             <div style={{justifyContent: 'space-evenly'}}>
             <div classname="button-edit" style={{ marginTop:600, marginLeft: -30}}>
             {showButtons && (
-              <button Variant="contained" as="input" type="button" className="btn-edit" onClick={() => {console.log(auth.isLoggedIn)}}>
+              <button Variant="contained" as="input" type="button" className="btn-edit" onClick={() => {navigate(`/mandatoryprof/${username}`);}}>
                 <text className="button-text">EDIT</text>
               </button>)}
             </div>
