@@ -56,19 +56,19 @@ const Profile = () => {
         {filteredUser ? (
           <div class = "Bg-container2">
             <h2 style={{color:'#fff', marginLeft:'17rem', fontFamily: 'serif'}}>Profile</h2>
-            <img src={profiled} style={{ height: "10rem", width: "10rem", marginTop:'45px', marginLeft:'-7rem', marginBottom:'50rem'}} alt='logo'/>
+            <img src={filteredUser.profile_pic ? `https://onlinebugaw.pythonanywhere.com${filteredUser.profile_pic}` : profiled} alt="Profile Picture" style={{ height: "10rem", width: "10rem", marginTop:'45px', marginLeft:'-7rem', marginBottom:'50rem', borderRadius: '100px'}}/>
             <h2 style={{color:'#fff', marginLeft:'-13rem', marginTop:'13rem', fontFamily: 'serif', textDecorationLine:'underline'}}>{filteredUser.first_name} {filteredUser.last_name}, {ageInYears || 'Unknown'}</h2>
             <h4 style={{color:'#fff', marginLeft:'-25rem', marginTop:'15rem', fontFamily: 'serif'}}>Interested in: {filteredUser.gender === "Male" ? "Female" : "Male"}</h4>
-            <div class = "Bg-container3" style={{marginTop: '17rem', marginLeft: '1rem'}}> Bio: I love Online Bugaw</div>
-            <div class = "Bg-container4" style={{marginTop: '25rem', marginLeft: '1rem'}}> Address:Bulua, Cagayan de Oro City  {auth.username}</div>           
+            <div class = "Bg-container3" style={{marginTop: '17rem', marginLeft: '1rem'}}>Bio: I love Online Bugaw</div>
+            <div class = "Bg-container4" style={{marginTop: '25rem', marginLeft: '1rem'}}>Address:Bulua, Cagayan de Oro City  {auth.username}</div>           
             <div style={{justifyContent: 'space-evenly'}}>
-            <div classname="button-edit" style={{ marginTop:600, marginLeft: -30}}>
+            <div classname="button-edit" style={{ marginTop:600, marginLeft: 100}}>
             {showButtons && (
               <button Variant="contained" as="input" type="button" className="btn-edit" onClick={() => {navigate(`/mandatoryprof/${username}`);}}>
                 <text className="button-text">EDIT</text>
               </button>)}
             </div>
-            <div classname="button-edit" style={{ marginTop:600, marginLeft: 200 }}>
+            <div classname="button-edit" style={{ marginTop:600, marginLeft: 300 }}>
             {showButtons && (
               <button Variant="contained" as="input" type="button"className="btn-edit"
                 onClick={() => setShow(true)}

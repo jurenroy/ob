@@ -2,6 +2,7 @@
   import Headeded from '../components/Headeded';
   import heart from '../assets/heart1.png'
   import broke from '../assets/heart2.png'
+  import profile_pic from '../assets/profiled.png'
   import '../styles/homepage.css';
 
   const Homepage = () => {
@@ -61,7 +62,7 @@
               <div>
                 <img 
                   style={{height: '200px', width: '200px', borderRadius: '100px'}}
-                  src={`https://onlinebugaw.pythonanywhere.com${users[currentIndex].profile_pic}`}
+                  src={users[currentIndex].profile_pic ? `https://onlinebugaw.pythonanywhere.com${users[currentIndex].profile_pic}` : profile_pic}
                   alt="Profile Picture"
                 />
               </div>
