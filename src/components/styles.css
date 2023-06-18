@@ -26,7 +26,7 @@
     height: 2.5rem;
     border-radius: 10px;
     border-color: gray;
-    color: gray;
+    color: black;
     font-size: 20px;
     text-align: center;
     transition: 0.5s;
@@ -38,6 +38,7 @@
     top: 53.5%;
     font-size: 20px;
     transition: 0.5s;
+    color: black;
 }
 .email:valid ~ .em,
 .email:focus ~ .em{
@@ -59,7 +60,7 @@
     height: 2.5rem;
     border-radius: 10px;
     border-color: gray;
-    color: gray;
+    color: black;
     font-size: 30px;
     text-align: center;
     transition: 0.5s;
@@ -100,7 +101,7 @@ button {
     height: 3.5rem;
     border-radius: 25px;
     border-color: gray;
-    color: gray;
+    color: black;
     font-size: 20px;
     text-align: center;
     transition: 0.5s;

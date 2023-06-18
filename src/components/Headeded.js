@@ -18,7 +18,7 @@ const Headeded = () => {
         <h1 style={{ color: '#fff', marginLeft: '10px', fontSize: '24px', lineHeight: '80px' , cursor: 'pointer'}} onClick={() => navigate('/')}>ONLINE BUGAW</h1>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', marginLeft: 'auto', marginRight: 'auto'}}>
-        <img src={loveus} style={{ height: "130px", width: "130px", marginTop:'-30px',  marginBottom:'-35px',marginLeft:-130, cursor: 'pointer' }} alt="Logo" onClick={() => navigate('/error')}/>
+        <img src={loveus} style={{ height: "130px", width: "130px", marginTop:'-30px',  marginBottom:'-35px', cursor: 'pointer' }} alt="Logo" onClick={() => navigate('/error')}/>
         <img src={dobook} style={{ height: "130px", width: "130px", marginTop:'-30px',  marginBottom:'-35px', cursor: 'pointer' }} alt="Logo" onClick={() => navigate('/error')}/>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', marginRight: '10px'}}>

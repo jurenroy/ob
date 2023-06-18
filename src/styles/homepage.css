@@ -4,16 +4,17 @@
     height: 100vh;
     background: linear-gradient( #9026C8, #410174);
 }
-.second{
+.secondss{
     display: flex;
     position: absolute;
     left: 50%;
     top: 0%;
-    margin-top: 350px;
+    margin-top: 320px;
     transform: translate(-50%, -50%);
     width: 500px;
-    height: 520px;
+    height: 420px;
     background-color: #33083A;
+    box-shadow: 8px 9px 8px 5px black;
     flex-direction: column;
     justify-content: center; /* center horizontally */
     align-items: center; /* center vertically */
