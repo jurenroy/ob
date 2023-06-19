@@ -56,18 +56,19 @@
       <div className="container">
         <Headeded />
         <div className="secondss">
-        <h2 style={{color:'#fff', fontFamily: 'serif', marginTop: '-100px', fontSize: '30px', fontWeight: 'bold'}}>Profile</h2>
+        <h2 style={{color:'#fff', fontFamily: 'serif', marginTop: '-110px', fontSize: '30px', fontWeight: 'bold'}}>Profile</h2>
           {users.length > 0 && currentIndex < users.length ? (
             <div style={{ color: 'white' }}>
-              <div>
+              <div >
+
                 <img 
-                  style={{height: '180px', width: '180px', borderRadius: '100px'}}
+                  style={{height: '180px', width: '180px', borderRadius: '100px', marginTop: '-20px'}}
                   src={users[currentIndex].profile_pic ? `https://onlinebugaw.pythonanywhere.com${users[currentIndex].profile_pic}` : profile_pic}
                   alt="Profile Picture"
                 />
               </div>
-              <div style = {{textDecoration: 'underline', textAlign: 'center', fontWeight: 'bold', fontSize: '30px', marginTop: '-5px'}}>{users[currentIndex].first_name} {users[currentIndex].last_name}, {calculateAge(users[currentIndex].birthday)}</div>
-              <div style = {{textAlign: 'left', marginLeft: '-205px', fontWeight: 'bold'}}>Interested in: {users[currentIndex].gender === "Male" ? "Female" : "Male"}</div>
+              <div style = {{textDecoration: 'underline', textAlign: 'center', fontWeight: 'bold', fontSize: '30px', position: 'absolute', width: '500px', marginLeft: '-170px'}}>{users[currentIndex].first_name} {users[currentIndex].last_name}, {calculateAge(users[currentIndex].birthday)}</div>
+              <div style = {{textAlign: 'left', marginLeft: '-205px', fontWeight: 'bold', marginTop: '50px'}}>Interested in: {users[currentIndex].gender === "Male" ? "Female" : "Male"}</div>
 
               <div class = "Bg-container3" style={{marginTop: '1rem', marginLeft: '-210px', color: 'black', paddingLeft: '10px'}}>{' '} Bio: I love Online Bugaw</div>
               <div class = "Bg-container4" style={{marginTop: '4rem', marginLeft: '-210px', color: 'black', paddingLeft: '10px'}}>{' '} Address:Bulua, Cagayan de Oro City</div>  
