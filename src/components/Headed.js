@@ -15,6 +15,8 @@ const Headed = () => {
     secondText = "Sign Up";
   } else if (location.pathname === "/forgotpass" ) {
     secondText = "";
+  }  else if (location.pathname.includes("/mandatoryprof/")) {
+    secondText = "";
   }
 
   return (

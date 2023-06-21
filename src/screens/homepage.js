@@ -3,11 +3,13 @@
   import heart from '../assets/heart1.png'
   import broke from '../assets/heart2.png'
   import profile_pic from '../assets/profiled.png'
+  import { useSelector } from 'react-redux';
   import '../styles/homepage.css';
 
   const Homepage = () => {
     const [users, setUsers] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const auth = useSelector((state) => state.auth);
 
     useEffect(() => {
       const fetchUsers = async () => {
@@ -20,10 +22,13 @@
               },
             }
           );
-
+    
           if (response.ok) {
             const data = await response.json();
-            setUsers(data);
+            const filteredUsers = data.filter(
+              (user) => user.id !== 1 && user.username !== auth.username
+            );
+            setUsers(filteredUsers);
           } else {
             console.error('Error fetching users:', response.status);
           }
@@ -31,7 +36,7 @@
           console.error('Error fetching users:', error);
         }
       };
-
+    
       fetchUsers();
     }, []);
 
